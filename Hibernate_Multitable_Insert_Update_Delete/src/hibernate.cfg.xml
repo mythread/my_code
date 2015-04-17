@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <!--<session-factory name="sdf">  -->
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">123</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">multitable</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <mapping resource="com/ibm/etp/hibernate/pojo/Goodstype.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Ordergoods.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Userrole.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Orderinfo.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Goodsinfo.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Userinfo.hbm.xml" />
+        <mapping resource="com/ibm/etp/hibernate/pojo/Ordertype.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

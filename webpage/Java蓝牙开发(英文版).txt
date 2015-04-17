@@ -1,0 +1,5209 @@
+Bluetooth for Java 
+
+by Bruce Hopkins and Ranjith Antony ISBN:1590590783 
+Apress . 2003 (352 pages) 
+
+The authors of this text describe how to develop wireless Java 
+applications using Bluetooth for a variety of platforms. This 
+includes an API overview of the Java library, development of 
+Bluetooth-based services, highlights of security concerns, and 
+more. 
+
+Table of Contents 
+Bluetooth for Java 
+Introduction 
+Chapter 1 -Introducing Bluetooth 
+Chapter 2 -Bluetooth 1.1 
+Chapter 3 -Before You Get Started 
+Chapter 4 -Understanding the Java Bluetooth API 
+Chapter 5 -Bluetooth with J2ME MIDP 
+Chapter 6 -Creating a Bluetooth Print Server with JPS API 
+Chapter 7 -Java and OBEX 
+Chapter 8 -Using a Bluetooth Simulator 
+Chapter 9 -Bluetooth Security 
+Chapter 10 -Wireless Embedded Systems with the Micro BlueTarget 
+Chapter 11 -Enterprise Bluetooth Applications with the Ericsson BlipNet 
+Chapter 12 -Bluetooth and Jini 
+Appendix A -javax.bluetooth 
+Appendix B -javax.obex 
+Appendix C -Java Bluetooth Development on the PalmOS Platform 
+Appendix D -BlipNet 1.1 API 
+Index 
+List of Figures 
+List of Tables 
+List of Listings 
+List of Sidebars 
+
+
+Back Cover 
+
+Bluetooth is a technology for wireless communication. It is similar in functionality to the way laptops connect to the 
+Internet from home/office, but is typically used for short burst communications instead of a continuous connection. 
+Because of this difference, Bluetooth is more typically found supported in wireless phones and personal devices. 
+Bluetooth for Java is not an overview of Bluetooth. In the book, Bruce Hopkins and Ranjith Antony describe how to 
+develop wireless Java applications using Bluetooth for a variety of platforms. This includes an API overview of the 
+
+-
+
+Java library, development of Bluetooth-based services, highlights of security concerns, and walkthroughs for 
+development with some of the different tools available. Programs will not be just J2ME (micro devices) based, but 
+will also be for J2SE (client/desktop). 
+
+About the Authors 
+
+Bruce Hopkins is an early adopter of Java technology, and has used it in a wide variety of applications, ranging from 
+embedded systems to enterpise applications. He currently works as a technical architect at Redwood Solutions, an 
+-
+
+IT services firm in Livonia, Michigan. 
+
+-
+Ranjith Antony is the technical lead for Atinav, an early Bluetooth "provider"/adopter. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Bluetooth for Java 
+
+BRUCE HOPKINS AND 
+RANJITH ANTONY 
+
+
+-
+
+Copyright . 2003 by Bruce Hopkins and Ranjith Antony 
+
+All rightsreserved.No partofthisworkmaybe reproduced or transmitted in anyform orbyanymeans, 
+electronic or mechanical, including photocopying, recording, or by any information storage or retrieval 
+
+-
+
+-
+
+system, without the prior written permission of the copyright owner and the publisher. 
+
+-
+
+ISBN (pbk): 1-59059-078-3 
+
+-
+
+-
+
+Printed and bound in the United States of America 12345678910 
+
+-
+
+-Trademarked names may appear in this book. Rather than use a trademark symbol with every occurrence 
+
+of a trademarked name,we usethe namesonlyin an editorial fashion and to the benefitofthe trademark 
+
+-
+
+owner, with no intention of infringement of the trademark. 
+
+-
+
+-
+
+Technical Reviewer: Andrew Stringer 
+
+-
+
+-
+
+Editorial Directors: Dan Appleman,GaryCornell,Simon Hayes,Karen Watterson,John Zukowski 
+
+-
+
+Assistant Publisher: Grace Wong 
+
+-
+
+-
+
+Project Manager and Development Editor: Tracy Brown Collins 
+
+-
+
+Copy Editor: Ami Knox 
+
+Compositor: Impressions Book and Journal Services, Inc. 
+
+Artist and Cover Designer: Kurt Krames 
+
+Indexer: Valerie Robbins 
+
+Production Manager: Kari Brooks 
+
+Manufacturing Manager: Tom Debolski 
+
+Distributed to the book trade in the United States by Springer-Verlag New York, Inc., 175 Fifth Avenue, 
+New York, NY, 10010 and outside the United States by Springer-Verlag GmbH & Co. KG, Tiergartenstr. 
+17, 69112 Heidelberg, Germany. 
+
+In the United States, phone 1-800-SPRINGER, email <orders@springer-ny.com>, or visit 
+http://www.springer-ny.com. 
+
+Outside the United States, fax +49 6221 345229, email <orders@springer.de>, or visit 
+http://www.springer.de. 
+
+For information on translations, please contact Apress directly at 2560 9th Street, Suite 219, Berkeley, CA 
+94710.Phone510-549-5930,fax:510-549-5939,email <info@apress.com>, or visit 
+http://www.apress.com. 
+
+The information in thisbookisdistributed on an "asis"basis,withoutwarranty.Althougheveryprecaution 
+has been taken in the preparation of this work, neither the author nor Apress shall have any liability to any 
+person or entity with respect to any loss or damage caused or alleged to be caused directly or indirectly by 
+
+
+the information contained in this work. 
+
+The source code for this book is available to readers at http://www.apress.com in the Downloads 
+section. 
+
+First and foremost, Idedicate this book to the Lord Jesus Christ, without whom I could not have written 
+this book. I also dedicate this book to my loving wife, Schrell, and my two wonderful children, Lydia and 
+
+-
+
+Bruce Jr. 
+
+〞Bruce Hopkins 
+
+Dedicated to my parents, Prof. Antony Mampilly and Prof. Kochurani Mampilly. 
+
+〞Ranjith Antony 
+
+-
+
+About the Authors 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Bruce Hopkins is a 6-year Java veteran with experience in distributed computing and wireless networking. 
+
+-
+
+Hehasan electricaland computer engineering degree from Wayne State Universityin Detroitand has 
+
+-
+
+interestin robotics,microcomputing,and electronics.He hasworked inJavasinceJDK1.0a, and his 
+research studies include distributed computing, clustering, encryption, and pervasive computing. He 
+currently works as an independent consultant in the Metro Detroit area. 
+
+
+Ranjith Antony earned his bachelor of technology degree in computer engineering from the College of 
+Engineering, Chengannur, Kerala, India, an institute affiliated with Cochin University of Science and 
+Technology. He became a lecturer in the Department of Computer Engineering of the Government Model 
+Engineering College,an institute affiliated withCochin UniversityofScience and Technology.In June 
+1998, he joined Atinav as a software engineer. Presently, he is working as a senior technical manager and 
+ismanaging the Bluetooth-related Java productsfrom Atinav. 
+
+About the Technical Reviewer 
+
+Andrew Stringer waseducated atthe Dublin InstituteofTechnologyin computer science andsoftware 
+engineering, receiving a bachelor of science degree. Andrew joined Rococo Software in 2001 as a trainer 
+and consultant in the field of wireless software development. Andrew has great experience in developing 
+
+
+and delivering courses with J2ME and also with Java APIs for Bluetooth Wireless Technology (JABWT). 
+Andrew lives in Dublin, Ireland. 
+
+Acknowledgments 
+
+Ipersonallywantto thank all the people who helped me in writing the bookthatyou're holding.Never in a 
+million yearswould Ihave thoughtthatIwouldbe working with GaryCornelland John Zukowski,both of 
+
+-
+
+whom are veryrespected Java authors.I'm verygrateful thatGaryand John accepted myproposal way 
+back in Januaryof2002.For thatmatter,Iwantto thankthe restof the team atApressincluding Tracy 
+Brown,AmiKnox,KariBrooks,and Wanshun Tam.More honor,however,goestoTracy.Manythanksto 
+Andrew Stringer from Rococo for tech reviewing this book; I never knew that I could have been wrong so 
+many times. It's good to have an expert at your disposal. 
+
+Bluetooth equipmentisn'tcheap,so Ialsowantto acknowledge all the greatcompaniesaround the world 
+
+-
+
+(literally) thatgaveRanjith andme hardwareloansand technical assistance.For instance,Jeff Dayand 
+
+-
+
+the rest of the team at 3Com (including Ken Morley, Brent Nixon, and Randy Rollins) were very helpful in 
+
+-
+
+providing uswith Bluetooth adaptersand tech support.Mahendra Tailor from TDKSystemsin the UKwas 
+
+-
+
+veryhelpful in providing uswith equipmentaswell.Rococo wasverykind to allowusto have anextended 
+
+-
+
+evaluation period inorder towrite the chapter on Bluetooth simulation.Thanksto Geraldine,Karl,and the 
+
+-
+
+rest of the team in Ireland. Lim Siong Huat from Mobiwave in Singapore was very helpful in allowing us to 
+
+-use their protocol analyzer for the security chapter. Peter Duchemin from Smart Network Devices in 
+
+Germanywasveryhelpful in getting me the insidescoop ontheir MicroBlueTarget.Ialso wanttothank 
+
+-
+
+Niels-Christian Gjerrild from Ericsson in Sweden for hardware and documentation on the Ericsson BlipNet 
+system. North of the border, in Canada, I also received assistance from Dr. Steven Knudsen regarding the 
+
+-
+
+-
+
+integration of Jini and Bluetooth. 
+
+-
+
+-
+
+Thisismyfirstbook,so Idefinitelyhave to thank all the wonderful teachersatGrant,CassTech,and 
+
+-
+
+WSU whohelpedmetogethere.You'llneverforgetagoodteacher,andI'vehadmanyinmylifetime.I 
+
+-
+
+wanttothankpersonallyMrs.Smith,Mrs.Parent,Mr.Walker,and Mrs.Cowan from GrantSchool.At 
+
+-
+
+CassTech,Ihadthe pleasure to studyunder Mr.Miller,Mr.Raymond,andMrs.Ashford.Dr.Steve Kahn 
+
+-
+
+wasalittle disappointed thatIdidn'tfinish mydegree with the MathematicsDepartmentafter Ijoined the 
+Emerging ScholarsProgram,buthedeservesto bementioned.Ialso wantto thankDr.Chaudharyfor 
+giving me the opportunityto studyand research with him in theParallel andDistributed Computing Lab at 
+WayneState.Veryfew studentswere eligible to workinthe undergraduate research program,andI'm 
+grateful toBill Hill for allowing meto be a partofit. 
+
+I wouldn't be the person that I am today without the spiritual guidance of my pastors at Bethlehem Temple 
+Church.Manythankstothe late Bishop Jackson,the late Bishop Porter,Elder Clark,andthe whole 
+church family. 
+
+I'm the youngestof seven children,soeach one ofmysiblingsplayed a role in shaping mylife and career. 
+ThankstoTheresa,Valerie,Darlene,Barbara,Mark,and Tyrone.Idefinitelyhave to give special thanksto 
+Mom and Dad, because they've dealt with me for 26 years of my life. They did an excellent job raising all 
+seven children with college educations. Thanks to Thaddeus Johnson for being a good friend. In order to 
+stay smart, you have to hang around smart people. 
+
+Finally,Iwantto thankmywonderfullysweetwife,Schrell.She wasverypatientand understanding while I 
+wrote thisbook.She istrulya virtuouswoman. 
+
+〞Bruce Hopkins 
+
+Numerous people have provided assistance, advice, and encouragement during the preparation of this 
+book. Major contributors of material, ideas, insights, solutions, and explanations that have found their way 
+into thisbookincludeJamesJose,Salman Ali,RajeshRabindranath,Sudhin Latheef,VaishaliPatil,and 
+Sajith MNair.Besidesthem,myteammatesatAtinav,especiallyGeorge Mathew,Cipson Jose, and 
+Dinkar Raj,havecontributed suggestions,fixed program bugs,andmade imperceptible contributionstoo 
+numerousto mention.Iam also grateful to Mr.Lim SiongHuatand hiscolleaguesatMobiwave for 
+extending their supportbyproviding timelyadvice and necessaryequipment.Withouthim,the chapter on 
+
+
+Bluetooth security would not have materialized. 
+
+〞Ranjith Antony 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Introduction 
+
+In the near future, Bluetooth wireless technology will be embedded into nearly every consumer electronics 
+device.Deviceslikemobile phones,PDAs,laptops,desktops,calculators,watches,keyboards,mice, 
+printers, scanners, cameras, and video game consoles are just a sample of what device manufacturers 
+will be embedding with Bluetooth.Today,Bluetooth chipsetscan be purchased(inmassquantities) for $5, 
+
+-
+
+so it'sonlya matter oftime before manyof yourpersonal devicesbecome Bluetooth enabled. 
+
+With Java,you getthe abilityto create applicationsthatare agnosticof their underlying hardware platform. 
+As you can see, this makes Java the perfect programming language for Bluetooth! Regardless of the 
+hardware or OS used for your PDA, mobile phone, watch, etc., you can use the same programming 
+language to create your Bluetooth applications.Thisbook isallabouthowto create wirelessapplications 
+
+using Java and Bluetooth. 
+
+-
+
+-
+
+-
+
+How This Book Is Organized 
+
+-
+
+Here's an overview of what's covered in this book: 
+
+-
+
+-
+
+Chapter 1: Introducing Bluetooth: If you're completely new to Bluetooth, then this chapter is for you. In 
+
+-
+
+Chapter 1, we give a brief introduction to Bluetooth, with a general explanation of what you can do with 
+
+the technology. 
+
+-
+
+-
+
+Chapter 2: Bluetooth 1.1: In this chapter, we dive right into the dirty details of the Bluetooth protocol. 
+
+-
+
+Here wedefine the rolesand relationshipsbetweenthe Bluetoothstack,Bluetooth profiles,and 
+
+-
+
+Bluetooth hardware. If you've seen Bluetooth terminology before, but you don't know the difference 
+
+-
+
+between SDP and SDAPfor instance,then thischapter will help clear thingsup. 
+
+-
+
+-
+
+Chapter 3: Before You Get Started:Chapter 3 is very appropriately named because it covers all the 
+
+-
+
+loose ends that need to be addressed before we show you how to integrate Bluetooth and Java. 
+
+-
+
+Chapter 4: Understanding the Java Bluetooth API: This chapter covers the full life cycle of a Bluetooth 
+application (whether you're using Java or not). This chapter also shows you how to use the 
+javax.bluetooth package of the official Java Bluetooth API (the JSR-82) in order to create 
+Bluetooth applications. 
+
+Chapter 5: Bluetooth with J2ME MIDP: The firstcomplete example ofa JavaBluetooth application is 
+explained in Chapter 5.Before we presentthe code,however,we provide a shortreviewofthe J2ME 
+MIDP. 
+
+Chapter 6: Creating a Bluetooth Print Server with JPS API: Now with a complete example under your 
+belt,things willstartto getprettyexciting. In Chapter 6,we introduce you to the Java Printing APIand 
+show you how to create a Bluetooth print server. 
+
+Chapter 7: Java and OBEX:Chapter 7 covers the foundation of the OBEX protocol and provides an 
+exampleon how to transferfilesusing the javax.obex package of the JSR-82. 
+
+Chapter 8: Using a Bluetooth Simulator: Asyoumighthave guessed,thischapter isallabouthowto 
+create Java applicationsthatinteractwith virtual Bluetooth devices.In thischapter,theentire Bluetooth 
+network is simulated in software. 
+
+Chapter 9: Bluetooth Security:Chapter9 coversthe securitymeasuresprovidedbythe Bluetooth 
+specification in order to make wireless applications more secure. 
+
+Chapter 10: Wireless Embedded Systems with the Micro BlueTarget: The primaryfocusof Chapter 10 
+is the Micro BlueTarget by Smart Network Devices. In this chapter, we explore the possibilities of 
+creating applicationswith a fullyfunctionalcomputer thatfitsin your hand andincludesan 
+implementationofthe JSR-82. 
+
+
+Chapter 11: Enterprise Bluetooth Applications with the Ericsson BlipNet: In Chapter 11, we introduce 
+you to enterprise Bluetooth applications and show you how to construct them using Java and the 
+Ericsson BlipNet. 
+
+Chapter 12: Bluetooth and Jini: In the final chapter of the book, we provide an overview of Jini network 
+technologyand describe howto implementJiniandBluetooth together. 
+
+-
+
+Appendix A: javax.bluetooth:AppendixA isa handyreference thatcontainsallthe method signatures 
+of the javax.bluetooth API. 
+
+Appendix B: javax.obex:AppendixB isa handyreference thatcontainsallthe method signaturesof 
+thejavax.obex API. 
+
+Appendix C: Java Bluetooth Development on the PalmOS Platform:Appendix C provides a quick 
+
+-
+
+overview of how to get started creating Java Bluetooth applications on the Palm OS platform. 
+
+-
+
+Appendix D: BlipNet 1.1 API:Appendix D contains full descriptions of the classes, exceptions, and 
+
+-
+
+interfacesthatcomprise the BlipNetAPI.Thisappendixwill be reallyusefulto have on hand when 
+
+-
+
+developing BlipNet applications. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Intended Audience 
+
+
+So who are you?Thisbookreallyhastwoaudiences.Ifyou're aJava developer,then thisbookassumes 
+that you're an intermediate Java developer with little or no experience with Bluetooth. You'll get the most 
+outofthisbookifyou'vewritten a few Java classeson your own (especiallyJ2MEapplications). 
+
+-
+
+If you're a Bluetooth developer, then this book becomes useful to you after Chapter 2. If you've never used 
+Java before, then we'd suggest that you read the first few chapters of a J2ME book before you read this 
+book. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+The Code 
+
+The source code for this book is available at http://www.apress.com in the Downloads section. The 
+book's companion Web site, http://www.javabluetooth.com, also contains the source code, as 
+well asother usefulresourcessuch asalistofrecommended Bluetooth hardwarefor running the 
+
+examples. 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Chapter 1: Introducing Bluetooth 
+
+
+Simply stated, Bluetooth is a wireless communication protocol. As such, you would use Bluetooth to 
+communicate to two or more otherBluetooth-capable devices.In thissense,Bluetooth islike anyother 
+communication protocol thatyou mayuseeverydaylike HTTP,FTP,SMTP,or IMAP. Bluetooth isalso 
+like these protocolsin thatithasa client-server architecture.In Bluetooth, the one whoinitiatesthe 
+
+-
+
+connection (theclient) isthemaster,and theone who receivesthe connection (the server) isthe slave. 
+
+The purpose ofthischapter istogive you an introduction to Bluetooth.We'll brieflycompare itwith 
+competing technologieslikeInfraredand 802.11b and explain where Bluetooth fillsthe gapsthatthese 
+other technologies leave open. Next, we'll show you what Bluetooth can do and where it is currently used 
+inapplicationstoday,justin case you're unfamiliar with thecapabilitiesofthe technology.Finally,we'll 
+
+wrap up this chapter with a few scenarios for how Bluetooth will be used in the near future. 
+
+-
+-
+-
+
+
+Bluetooth vs. Infrared 
+
+-
+
+Of course, wireless communication between two computers is not new. PDAs have been able to do that 
+
+-
+
+for years using infrared technology. One drawback to infrared is that the devices involved must be a few 
+
+-
+
+feet apart, and most importantly, the infrared transceivers must see each other "eye to eye." If either of 
+
+-
+
+those conditionsare notmet, then thetransmission will fail.Bluetooth overcomesthe firstlimitationby 
+
+-
+
+having anominal range ofabout10 meters(30feet).Bluetooth overcomesthe second limitation because 
+
+-
+
+it works like a radio, so transmissions are omnidirectional. Consequently, there are no line-of-sight issues 
+
+-
+
+when communication occurs between two Bluetooth devices. 
+
+-
+-
+-
+-
+-
+-
+
+
+
+Bluetooth vs. 802.11b 
+
+If you've heard of Bluetooth before, then you've certainly heard of 802.11b (the wireless LAN protocol), 
+another wireless communication protocol. Bluetooth and 802.11b were created to accomplish two 
+different goals, although both technologies operate in the same frequency band: 2.4 GHz. 
+
+-'ll interfere 
+
+Note Having both technologies operate at the same frequency range does not mean theywhen placed in range of each other, according to a Forrester Research study conducted in 
+2001. Go to http://www.forrester.com/ for details on that report. 
+
+The goalofwirelessLAN(802.11b) isto connecttworelativelylargedevicesthathave lotsofpowerat 
+high speeds.Typically,thistechnologyisusedto connecttwolaptopswithin 300 feetat11Mb/s.This 
+technologyisalso useful for networkadministratorswho wantto extend their LAN to placeswhere it is 
+
+-
+
+either expensive or inconvenient to run cables. 
+
+-
+
+On the other hand,Bluetooth isintendedto connectsmaller deviceslikePDAsand mobile phoneswithin a 
+
+-
+
+range of 30 feet at a rate of 1 Mb/s. Slower data rates and shorter ranges allow Bluetooth to be a low
+
+
+-
+
+power wirelesstechnology.Compared to 802.11b devices,some Bluetoothdevicescan easilyconsume 
+
+-
+
+500 timeslesspower,which can makea huge difference in the batterylife of manymobiledevices. 
+
+-
+
+-
+
+Bluetooth is also intended to be used as a cable replacement technology. If you have multiple peripherals 
+
+-
+
+connected to your computer using RS-232 or USB, then Bluetooth is the ideal solution if you want to use 
+
+-
+
+those deviceswirelessly.It'salmostimpossible to connectperipheralstoyour computer using 802.11b 
+
+-
+
+technology(well,exceptfor printers).Bluetooth evenhasa built-in capabilityfor wirelessaudio 
+
+-
+
+communication. 
+
+-
+
+Can either technologyreplace the other? Hardly.Bluetooth willnever replace 802.11b because it'sbad at 
+
+-
+
+handlingthe following: 
+
+-
+
+-
+
+Large file transfers between devices 
+
+-
+
+Long-range communication (onlyClass1 Bluetooth deviceshave a range of 300feet) 
+
+CROSS-See "Bluetooth Device Power Classes" in Chapter 2 for details about power 
+REFERENCE classes. 
+
+On the other hand, 802.11b will never replace Bluetooth because 
+
+802.11b can'tbeusedto communicate to peripherals. 
+
+802.11b requires too much power for communication. 
+
+802.11b is overkill for small data transfers. 
+
+802.11b wasn't designed for voice communication. 
+
+In the wirelesscommunication arena,there isnotechnologythatisbestsuited for everypossible 
+application.Either Bluetoothor 802.11b can be used for wirelesscommunication between computers. 
+Bothhave their placein the marketand can perform in their nicheswell.Newer wirelessLANprotocols 
+like 802.11a and 802.11g will further clear the distinction between Bluetooth and wireless LAN because 
+they extend 802.11b's bandwidth limitation to 54 Mb/s. 
+
+
+Bluetooth Devices on the Market Today 
+
+Now,let'stake a lookatBluetooth devicesthatyou can getatanyconsumer electronicsstore today.We'll 
+highlightthe problemsthatBluetooth solvesand give some scenariosforusing thistechnology.If you're 
+already familiar with common usage scenarios of Bluetooth devices, then feel free to skip this section. 
+
+-
+
+Wireless Data Transfer: PDA to Phone 
+
+Almost everyone owns a mobile phone nowadays. These devices are very convenient, compact, and cute 
+(well, at least some of them). However, they suffer from two major limitations: 
+
+Mobile phones have limited memory for phone book entries. 
+
+-
+
+Data entry on mobile phones can be cumbersome. 
+
+-
+
+We'-'
+
+ve all been there before. Entering data on a mobile phone is very tedious because youre dealing with 
+
+-
+
+a nine-button keypad to type alphanumeric text.Also,mobile phonesdon'thave a lotof memoryfor 
+-'ll also need to truncate some 
+
+storage, so you're limited to only 50 or 100 entries. On top of that, you
+
+nameswhenadding phone entries,so "AuntClarissa Johnson"becomes"AntClrssa Jnsn." 
+
+-
+
+-
+
+If you owna PDA,then you probablyagree thatPDAsare also useful devices.Theycan store thousands 
+
+-
+
+of contactentries,andtheyare a lot better for entering data compared to mobile phones.Since you can't 
+
+-
+
+store your entire contact list on your mobile phone, you probably have it stored on your PDA. 
+
+-
+
+Unfortunately,it'sa little inconvenientto lookup a phone number onthe PDA and then manuallydialthe 
+
+-
+
+number on the mobile phone. 
+
+-
+
+With a Bluetooth-enabled PDAand a Bluetooth-enabled mobilephone,you can keep your entire contact 
+-'s far more convenient. Don't even bother to store phone numbers on your phone. 
+
+-
+
+list on the PDA where itWhenever you are ready to dial a number, you just look up the number on the PDA and send the phone 
+
+-
+
+number over to the phone; no wires, no hassle. Figure 1-1 is a picture of one of HP's advanced Bluetooth
+
+
+-
+
+enabled PDAs. 
+
+
+Figure 1-1: The short antennae on HP iPAQ 5400 series Pocket PC allows it to communicate via 
+
+
+Bluetooth and 802.11b. For added security, this model also includes a fingerprint reader. 
+
+Connection Sharing: Laptop to Phone 
+
+If you're a programmer and you have alaptop,you knowhowcumbersome itisto geta dial-up Internet 
+connection onyour mobile phone.You mayhave an Internet-readyphone,butyou maynothave the right 
+
+-
+
+cable. Maybe you have the right cable (which isn't cheap), but you need additional software to establish 
+the dial-up connection.Sometimes,you need to connecttwo cablestogether toaccomplishthisfeat. 
+Bluetooth eliminates all the hassle from this scenario by creating a standardized method for wireless dialup 
+networking. You can even keep your wireless phone at your hip or in your purse while you surf the Web 
+on your laptop.The same appliesfor PCsor PDAsthatwantto use your phone toconnectto the Internet. 
+This is really convenient whenever your broadband connections at home go down for servicing. You can 
+
+-
+
+simply place your wireless phone in the vicinity of your PC and that's it, you're connected. 
+
+-
+
+-
+
+Personal Networks: PC to PC 
+
+-
+
+-
+
+Bluetooth is great for connecting two PCs together at a moderate speed. If you want higher speeds or if 
+
+-
+
+you need to transfer large files, then you're better off using Wireless LAN technology. On the other hand, 
+
+-
+
+Bluetooth is good at creating small, personal networks. So this is a great technology if you're having an 
+
+-impromptu meeting with coworkers. Bluetooth also has the added capability to discover new devices when 
+
+they enter your network. 
+
+-
+
+-
+
+-
+
+Cable Replacement: PC to Peripherals 
+
+-
+
+You can imagine Bluetooth asfunctioninglike anyother protocol to connectto your peripherals,such as 
+
+-
+
+serial (RS-232), parallel, USB, or Firewire. In the near future, your personal computer will be equipped 
+with a Bluetooth "port"in the same manner thatitcurrentlyfeaturesa serialand USBport. 
+
+-
+
+-
+
+-
+
+You can use Bluetooth to connect to your peripherals wirelessly and effortlessly. Have you ever been to a 
+remote location with a laptop andwanted to use a printer to printoutsome files? If you don'thavethe right 
+printer driver or the right cable, then you'll need to give your file to someone who does have it. If that 
+person doesn't have the right program to read your file, then you're out of luck; no printing for you. If you 
+had aBluetooth laptop and thatprinter wasa Bluetooth printer (regardlessof themanufacturer),then 
+you'd have no problem. With Bluetooth, you can ask the printer for the right driver if you don't have it, and 
+then youcanprintyour filewith no problem. 
+
+The Power User 
+
+So whatifyou're a power user? Youmostlikelyhave a PDA,a wirelessphone,a printer or two,a scanner, 
+an MP3 player,a digital camera,and a DV camera.The back ofyour computer probablylookslikea rat's 
+nest of wires and cables. Some devices you may leave disconnected until you really, really need them. 
+Bluetooth solvesall thisbyallowing you to have virtuallyan unlimited number ofperipheralswirelessly 
+connected to your computer.The onlylimitation isthatyou can onlyhave seven active connectionsatthe 
+same time. That should be fine because it would be quite rare for you to print, scan, upload pictures, and 
+sync your PDA all at the same time. 
+
+Interoperability: Any Device to Any Device 
+
+In the previousscenario,yournon-Bluetooth-enabled devicesaredefinitelynotinteroperable.In other 
+words,if you wantto send apicture from the camera to the PDA,then you'll need to use thecomputer to 
+interconnect them. The same also goes if you want to scan a document and send it to the printer (i.e., to 
+actlikea copier) or send itto the PDA;you'll alwaysneed your PCto be the "man in themiddle." Of 
+course,you can buya cable or two to dosome ofthose tasks,butthose cablesare rare and expensive. 
+Bluetooth solvesall thisbyallowing your devicesto communicate among themselveswith no hassleand 
+
+
+with nocables.It'sessentiallythe universal cable! 
+
+Bluetooth in the Small Office or Home Office 
+
+In the small office setting,how do youshare peripheralslike a printer among users? Let'ssayyou have a 
+$300 printer that you want two users on your network to share. Your cheapest option is to buy a print 
+
+-server〞but that's another $300! You might as well buy another printer for that kind of money. With 
+Bluetooth, if both your users are in range, no print server is needed because both users can connect to the 
+printer asif itwerea local printer.For thatmatter,the printer should beable to printfor everyBluetooth 
+user within range;butremember thatitcan onlyhandle seven active connectionsatthe same time. 
+
+Bluetooth for Voice Applications 
+
+-
+
+Now, Bluetooth is great at transferring data wirelessly, but it also has the capability to transmit voice and 
+
+-
+
+sound aswell.So ifyouhad a Bluetooth headset,you could use the same headsetto answer callson your 
+
+-
+
+Bluetooth-enabled wirelessphone aswell asanswercallsonyour Bluetooth-enabled homephone.You 
+
+-
+
+could also use the same headset to listen to your Bluetooth-enabled portable radio. 
+
+-
+
+-
+
+Bluetooth can also be enabled in your car so that if you're driving and you receive a call on your wireless 
+
+-phone, you can simply transfer the call to the hands-free system built right into the car. Your phone stays 
+
+on your hip,or in your briefcase.You can also usethe same technologyto initiate a call in your car without 
+
+-
+
+touching your phone at all. In either case, if you've arrived at your destination and you want to continue the 
+conversation,you justtransfer the callbacktothe phone. 
+
+-
+
+-
+
+-
+
+-
+
+Bluetooth for Wireless Gaming 
+
+-
+
+Of course,you can use Bluetoothfor wirelessgaming.It'salwaysa hassle when you wantto connecttwo 
+
+-
+
+handheld videogame systemsandplayagainsta friend.Mostcableswere about6 feetlong,so ifboth 
+
+-
+
+players were on a school bus, they needed to sit right next to each other to play. With Bluetooth, you just 
+
+-
+
+have to come within range of your opponent to play. 
+
+Okay,we're grownupsnow. Butwhatdo you doifyou're ina boring meeting and you have some time to 
+kill? With Bluetooth,you and your equallybored colleaguecanboth getoutyour PDAsand playa game of 
+checkers. PDAs are business tools, so no one will ever know if you are taking down notes or getting 
+doublejumped. Figure1-2 showsaBluetooth-enabledmobilegamingdevicethatcouldrevolutionizethe 
+portable gaming industry: the Nokia N-Gage. 
+
+
+Figure 1-2: The Bluetooth-enabled Nokia N-Gage wireless gaming system 
+
+
+Devices of the Future 
+
+So, what kind of devices, applications, or innovations can we expect to see in the future that involve 
+Bluetooth? Well, here are just a few that we can think of: 
+
+Bluetooth locator system 
+
+-
+
+Personalized family car 
+
+The new arcade: a restaurant lobby 
+
+The following sections describe these in more detail. 
+
+-
+
+Bluetooth Locator System 
+
+-
+
+Let's start off with a Bluetooth-enabled home, which means that wherever you go in your home, you are 
+
+-
+
+within range ofthe wirelessnetwork.With aBluetooth-enabledhome,youhave the ultimate locator 
+
+-
+
+system. All your Bluetooth-enabled devices can never be misplaced if they are within the bounds of your 
+
+-
+
+home.Ifanitem ever getslost,all you need to do isgo to your PC and startup the Bluetooth locator 
+
+-
+
+system program.For basicsystems,you tell the program whatdevice youare looking for,and the device 
+
+-
+
+will beep until it is found. For advanced systems, the Bluetooth locator system will display a map of your 
+
+-
+
+house and show you which room has your lost item. This solution is ideal for people who always misplace 
+
+-
+
+small but essential items like PDAs, wireless phones, keys, TV remotes, watches, and baby pacifiers! 
+
+-
+
+-
+
+Personalized Family Car 
+
+-
+
+-
+
+In thisexample,let'sstartoffwith aBluetooth-enabledcar.With a Bluetooth-enabled car,all you need to 
+
+-
+
+do isto setthe mirrors,seats,and radio stationsjustonce and store your preferenceson aBluetooth
+
+
+-
+
+enabled device thatyoucarrywith you all the time,like a wirelessphone,PDA,or awatch.Itwouldn't 
+
+-
+
+matter ifsomeoneelse used your car,because allyour preferencesare stored on the deviceyou keep 
+with you. After someone uses your car, all you need to do is upload your preferences from your Bluetoothenabled 
+device (like your watch〞see Figure 1-3) and be on your merryway. 
+
+
+Figure 1-3: Although the Fossil Wrist PDA doesn't contain any Bluetooth hardware, it does come 
+preloaded with a Bluetooth-enabled OS〞 the Palm OS 4.1. Palm OS is a registered trademark of 
+Palm, Inc. 
+
+
+The New Arcade: A Restaurant Lobby 
+
+Finally, let's say that sometime in the near future, you (and several other people) are waiting for a seat at a 
+restaurant. While you are waiting for your table, the hostess gives you a little gaming device to help you kill 
+time.ThisBluetooth-enabled device notonlyletsyou playgamesagainstthe computer,butyou can also 
+
+-
+
+playgameswith other peoplein the lobby! When your tableisready,your game unitvibrates 
+automatically, so the hostess doesn't even need to call you. When you turn your device in to the hostess, 
+your score isautomaticallyuploaded tothe high scoreslist.If your scoreisgood enough,youmayeven 
+win a free meal. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Summary 
+
+Bluetooth isa greattechnologyfor wirelessconnectionsbetween power-conservative computer devices.It 
+isalso a greatcable replacementtechnologyfor PCsand laptops.Itcanfunction asa universal connector 
+between your peripherals and devices, and you may never again need a cable (some of which can be 
+expensive) to connect your devices together. 
+
+-
+
+In the next chapter, we'll dig right in to the Bluetooth protocol. If you're new to Bluetooth, this will be your 
+firstintroduction to a lotofnewterminology.We'llexplain to you the componentsof the Bluetooth stack 
+and the purpose of Bluetooth profiles. When you create your wireless applications, you'll interact with the 
+stack and profiles to send and receive data. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Chapter 2: Bluetooth 1.1 
+
+Overview 
+
+The main focus of this chapter is to describe the inner workings of Bluetooth. The most current revision of 
+
+-
+
+the protocol isversion 1.1. Almosteverydevice on the markettodayiscompliantwithBluetooth version 
+1.1,although you mightbe able to find some devicesthatuse the 1.0B version ofBluetooth.The 
+differences between Bluetooth 1.0B and 1.1 are beyond the scope of this book. The differences are 
+minimal,and theyreallydon'tapplyto Java programmers. 
+
+What can you expect for future versions of Bluetooth like 1.2 and 2.0? Whenever the Bluetooth SIG (the 
+groupofcompaniesthatdeveloped the Bluetooth spec) plansto release later revisionsofthe spec,you 
+
+-
+
+can expectsome thingslike higher speeds,more profiles,and backward compatibilitywith1.1.We 
+
+-
+
+wouldn't expect the newer versions to try to compete with 802.11 speeds, but you might see data rates of 
+
+-
+
+4,8,or even 12 Mb/s.Bluetooth'sniche isasa low-power wirelesscommunication protocol,so don't 
+
+-
+
+expect Bluetooth 2.0 to be a power hog. 
+
+-
+
+CROSS-SeeChapter 1 for a discussion of Bluetooth versus 802.11b. 
+
+-
+
+REFERENCE 
+
+-
+
+-
+
+This chapter is all about Bluetooth. We'll give you brief history on how it began and how it got its name. 
+
+-
+
+Next,we'llshowyou theradio spectrum and where Bluetoothfitsin with devicesthatyou probablyalready 
+
+-
+
+know about. Afterwards, we'll describe the anatomy of a Bluetooth-enabled device by giving a description 
+
+-
+
+of Bluetooth hardware, the Bluetooth stack, and Bluetooth profiles. For the remainder of this book, when 
+
+-
+
+we refer to Bluetooth, we are referring to the 1.1 version of the spec. Now, let's dig in to Bluetooth! 
+
+-
+
+-
+
+-
+
+-
+
+
+A Brief History of Bluetooth 
+
+Bluetooth got its name from King Harald Bl.tand (Bluetooth) of Denmark. His most notable 
+accomplishmentwasthathe united DenmarkandNorwayunder Christianityin the 10th century.In 1994, 
+Ericssonconducted the firstresearch studiesofa wirelesstechnologyto link mobilephonesand 
+accessories.Yearslater in1997,Ericssonformed the Bluetooth Special InterestGroup (Bluetooth SIG) so 
+
+-
+
+that other companies could use and promote the technology. At that time, the Bluetooth SIG consisted of 
+the following promoter companies: 
+
+Ericsson 
+
+IBM 
+
+Intel 
+-
+
+
+Nokia 
+
+-
+-
+
+
+Toshiba 
+
+-
+-
+
+
+Later on, in 1999 after the 1.0 specification was released, the Bluetooth SIG added four more members: 
+
+-
+
+3Com 
+
+-
+-
+
+
+Agere 
+
+-
+
+Microsoft 
+
+-
+-
+
+
+Motorola 
+
+-
+-
+
+
+Today, the Bluetooth SIG has well over 2,000 members that are all interested in promoting and improving 
+
+-
+
+the Bluetooth standard. 
+
+-
+
+
+The Radio Spectrum 
+
+Wireless communication between computers is either in the form of light or radio signals. Infrared 
+technologyisthecommon waytoconductshortrangewirelesscommunicationsand obviouslyuseslight. 
+Conversely,Bluetooth technologyusesradiosignals. Table 2-1 givesa listof common everydayitemsthat 
+rely on radio signals for communication. As you can see, Bluetooth, cordless phones, 802.11b, and 
+
+-
+
+802.11g fallin the 2.4 GHzrange.Hopefully,thiswill demystifythe Bluetooth conceptifyou are newto all 
+
+this; it's just a radio. 
+
+Table 2-1: Common Radio Frequencies 
+
+-
+
+-
+-
+ITEM 
+AM radio 
+Garage door openers 
+-
+-
+-
+-
+-
+Baby monitors 
+TV channels 2每6 
+FM radio 
+TV channels 7每13 
+-
+-
+-
+-
+-
+-
+TV channels 14每83 
+CDMA cellular phone 
+GSM cellular phone 
+Cordless phones 
+-
+-Global Positioning System 
+PCS cellular phone 
+802.11b 
+802.11g 
+Bluetooth 
+Cordless phones 
+802.11a 
+Bluetooth Devices 
+
+
+FREQUENCY RANGE 
+535 kHz-1.6 MHz 
+40 MHz 
+49 MHz 
+54 MHz-88 MHz 
+88 MHz-108 MHz 
+174 MHz-216 MHz 
+512 MHz-806 MHz 
+824 MHz-894 MHz 
+880 MHz-960 MHz 
+900 MHz 
+1.227 GHz-1.575 GHz 
+1.85 GHz-1.99 GHz 
+2.4 GHz-2.483 GHz 
+2.4 GHz-2.483 GHz 
+2.4 GHz-2.483 GHz 
+2.4 GHz 
+5.15每5.35 GHz 
+
+So,ifa Bluetooth device isjusta radio, then whatdo theseradioslook like? Well, Figures2-1,2-2,and 2-3 
+are justa sample ofdevicesthatareBluetooth radios.Some ofthese itemsareusedin developmentkits, 
+while othersare meantto be used byconsumers. 
+
+
+-
+--
+Figure 2-1: The 3COMUSBBluetoothmodule 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Figure 2-2: The CSR BlueCore 1. This single-chip solution includes a microprocessor, RAM, I/O 
+controller,and Bluetooth implementation in a singlepackage! Thisismostlikelythe smallestradio 
+that you've ever seen. 
+
+
+Figure 2-3: The Palm SD Bluetooth card for Palm OS 4 devices. Palm OS is a registered trademark 
+of Palm, Inc. 
+
+The examples in this book will use a variety of Bluetooth devices from multiple vendors. The example in 
+Chapter 8, however, uses no Bluetooth devices at all! In that example, we simulate the entire Bluetooth 
+network in software using the Rococo Impronto Simulator. 
+
+Point-to-Point and Multipoint 
+
+
+Onefactor thatdistinguishesvariousBluetooth devicesistheir connection capabilities.If a Bluetooth 
+device can onlysupportpoint-to-pointcommunication,then it canonlycommunicate to a single Bluetooth 
+device at a time. Figure 2-4 demonstrates point-to-point communication in Bluetooth. 
+
+-
+-
+
+Figure 2-4: You can onlyconnectto one Bluetooth device at atime if you have hardware thatonly 
+
+supports point-to-point communication. 
+
+-
+
+-
+
+-
+
+Now,point-to-pointcommunication isn'tnecessarilya bad thing.If you have a Bluetooth phone,you really 
+
+-
+
+only need one connection to your Bluetooth phone. Frankly, it doesn't make sense to have multiple 
+
+-
+
+headsets be able to connect to your phone while you are using it. 
+
+-
+
+On the other hand, a multipoint device is able to communicate with up to seven other devices at the same 
+time.Figure 2-5 is a diagram of a multipoint device communicating to other devices within range using 
+
+-
+
+-
+
+Bluetooth technology. 
+
+-
+
+-
+
+-
+-
+-
+-
+-
+Figure 2-5: You can connectto up toseven Bluetooth devicesat atime if you have multipoint-capable 
+hardware. 
+
+Bluetooth Device Power Classes 
+
+Bluetooth hardware devices are broken up into three power classes. Table 2-2 describes the device 
+classes and their capabilities. 
+
+Table 2-2: Bluetooth Device Power Classes 
+
+CLASS POWER RATING RANGE 
+Class 1 100 mW 100 meters 
+Class 2 2.5 mW 20 meters 
+Class 3 1 mW 10 meters 
+So as we stated in Chapter 1,Bluetooth devicesare notlimited to 10 metersin range. 
+
+
+CROSS See "See "Bluetooth vs. 802.11b" in Chapter 1 for details on the initial discussion of 
+
+REFERENCE Bluetooth's range. 
+
+Howcan you determinea Bluetooth device'spower class,and therebyknow itsrange? The power classis 
+rarelyprinted on the unit,so here'sa hintifyou're trying to distinguish the power classofa device that 
+you've never seen before. If that device is powered by batteries, or if it fits in your hand (like a wireless 
+
+-
+
+phone or a headset),then it ismostlikelya Class2 or 3device.Ifthe Bluetoothdeviceisbuiltrightinto the 
+hardware ofanother unit,and thatunitisplugged into ACpower,then itismostlikelya Class1 device. 
+
+Don'tworryaboutBluetooth device classestoo much;justbe awarethatBluetooth can communicate at 
+greater distances than 10 meters. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+The Bluetooth Protocol Stack 
+
+Your computer isa prettypowerful device.Ithasaprocessor,memory,bus,hard drive,andother neat 
+things. The unfortunate thing is that the computer doesn't have the ability to use peripherals by itself. 
+Common peripheralslikeCD/DVDdrives,graphicdisplays,mice,keyboards,modems, printers,and 
+scannersallneed drivers.Your computer needsadriver to instructithow to use a peripheral.Byitself,the 
+
+-
+
+computer has no idea how to print to a printer or scan with a scanner. The computer is pretty powerful, but 
+also pretty helpless. The device driver is the controlling agent that helps the computer to communicate 
+with its peripherals. 
+
+The Bluetooth stack and Bluetooth hardware have a similar relationship. The Bluetooth stack is a 
+controlling agent (it could be software, firmware, hardware, or a combination of all three) that implements 
+the Bluetooth protocol and also allows you to control your Bluetooth device programmatically. The 
+
+-
+
+Bluetooth stack allows you to do these two things: 
+
+-
+
+-
+
+Communicate with other Bluetooth devices 
+
+-
+
+Control your own Bluetooth device 
+
+-
+
+-
+
+So, if you're familiar with the HTTP protocol stack and how it works, then you can relate to the Bluetooth 
+
+-
+
+protocol stack.AWeb browser usesan HTTPprotocol stackso thatitcan receiveWebcontentlike HTML 
+
+-
+
+pages, images, files, and best of all, Java applets. A Web server also uses an HTTP protocol stack to 
+
+-
+
+send out Web content to Web browsers over the network. So, like the HTTP protocol stack, a Bluetooth 
+
+-
+
+protocol stack will allow Bluetooth clients and servers to send and receive data over a wireless network. 
+
+-
+
+So how do the Bluetooth device and the Bluetooth stack work together? What is their relationship? Well, a 
+
+-
+
+Bluetooth device withouta stackcan be compared toa computer withoutan operatingsystem.More 
+
+-
+
+specifically, it's like a computer peripheral without a driver. Figure 2-6 illustrates this concept. 
+
+-
+
+-
+
+-
+
+
+Figure 2-6: A) The computer may be attached to its peripherals, but it can't control them without a 
+
+driver.B) The computer maybeattached to a Bluetooth device, butitcan'tcontrolitwithout astack. 
+
+So,inorder tocommunicate with the Bluetooth protocoland tocontrol a Bluetooth radio,your computer 
+usesa Bluetooth stack.Now,let'sbreak downthe Bluetooth stack into itsindividual componentsand see 
+how they work. Each component of the stack is called a layer. 
+
+Layers of the Protocol Stack 
+
+For application developers, the Bluetooth protocol can be broken up into two main items: layers and 
+profiles.AllthelayersoftheBluetoothprotocolformtheprotocolstack. Figure2-7 showshowthe 
+following layersofthe Bluetooth protocol "stackup": 
+
+Host Controller Interface (HCI) 
+
+Logical Link Control and Adaptation Protocol (L2CAP) 
+
+Service Discovery Protocol (SDP) 
+
+
+RFCOMM 
+Telephony Control Protocol Specification (TCS-BIN) 
+Wireless Access Protocol (WAP) 
+Object Exchange (OBEX) 
+
+
+-
+
+Bluetooth Network Encapsulation Protocol (BNEP) 
+Human Interface Device Protocol (HID) 
+
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+Figure 2-7: The Bluetooth protocol stack 
+
+-
+
+Note Now, if you're familiar with the Java Collection Framework, then you've heard of 
+
+-
+
+java.util.Stack. Please erase that idea from your mind completely, or you'll be thoroughly 
+
+-
+
+confused here. Bluetooth uses some terms like stack and profile, which unfortunately are used 
+
+-
+
+inJavaaswell.Thischapter isallaboutBluetooth,so we'll clear up the confusion whenever 
+
+-
+
+there is a clash of terminology here. 
+
+-
+
+You maynoticethatsome of these layersare called "protocols"aswell.That'sbecause these itemsare 
+subprotocols of the Bluetooth protocol stack. Others like TCP/IP, OBEX, and WAP were not originated by 
+the Bluetooth SIG,buttheyhave been incorporated intothe Bluetoothprotocol.Those subprotocolsare 
+known as adopted protocols. 
+
+Host Controller Interface (HCI) 
+
+The Host Controller Interface is a layer of software that passes all your data from your computer to your 
+attached Bluetooth device. For instance, if you are trying to communicate wirelessly from your PC (the 
+host) and you have a Bluetooth device (the controller) attached to your USB port, then you'll need a layer 
+that can understand the USB calls and send that information to the upper layers of the stack. Everything 
+(voice and data) passes though the Host Controller Interface. 
+
+Logical Link Control and Adaptation Protocol (L2CAP) 
+
+The Logical Link Control and Adaptation Protocol is the core layer of the stack through which all data must 
+pass. L2CAP boasts some powerful features like packet segmentation and reassembling of data, as well 
+asprotocol multiplexing.Ifyou are trying to passa verylarge packetofdata,L2CAPbreaksupthe packet 
+and sends smaller ones. Conversely, L2CAP also reassembles segmented packets when accepting data. 
+With protocol multiplexing, L2CAP can accept data from more than one upper protocol at the same time 
+(like SDPand RFCOMM).Onlydatapassesthrough the L2CAPlayer;audiolinkshave directaccessto 
+the Host Controller Interface. 
+
+Service Discovery Protocol (SDP) 
+
+
+A Bluetooth device uses Service Discovery Protocol in order to discover services. What's a Bluetooth 
+service? Agood examplewouldbe a Bluetooth printer.ABluetooth printer will publish itselfwitha 
+message such as,"Iam a printer,howcan Ihelpyou?"Ifyou havea document,and you wantto printit, 
+then youwould use the Service DiscoveryProtocol to find a printer thatoffersaprinter service in your 
+range. 
+
+RFCOMM -
+
+RFCOMMiscommonlyknown asthe wirelessserialport,or the cable replacementprotocol.The name is 
+derived from the fact that your serial ports are called COMM1, COMM2, etc. RFCOMM simulates the 
+functionalityofa standard serial port.For instance,a Bluetooth-enabled PDA would use the RFCOMM 
+layer to synchronize its data to a Bluetooth-enabled PC as if they were physically connected by a cable. 
+
+-
+
+Telephony Control Protocol Specification (TCS, TCS Binary, TCS
+
+
+BIN) 
+-
+-
+
+
+TelephonyControl Protocol Specification (TCS,TCSBinary,TCS-BIN) isused to send control signalsto 
+
+-
+
+devicesthatwantto employthe audio capabilitieswithin Bluetooth.For example,a Bluetooth cordless 
+
+-
+
+phone woulduse thislayer ofthe protocol to send signalsto thebasestation indicating thatthe user has 
+
+-
+
+requested tohangup thecurrentcall,or to use call waiting,or to placea three-waycall,etc. 
+
+-
+
+-
+
+Wireless Access Protocol (WAP) 
+
+-
+
+-
+
+If you've used an Internet-enabled wireless phone before, then you've used WAP. In Bluetooth, this is an 
+
+-
+
+adopted protocol, so the Bluetooth SIG has incorporated the existing WAP protocol into the Bluetooth 
+
+-
+
+protocol to fit Bluetooth's needs. WAP requires that PPP, IP, and UDP be present in the stack. 
+
+-
+
+-
+
+Object Exchange (OBEX) 
+
+-
+
+OBEXisa communication protocol initiallydefined bythe Infrared DataAssociation (IrDA).Unlessyou've 
+worked with infrared, you've probably haven't heard of OBEX. Just like WAP, OBEX was defined by 
+another group,butitwasadoptedbythe Bluetooth SIG.OBEXisprettyusefulwhen you wantto transfer 
+objectslike filesbetween Bluetooth devices.OBEX doesnotrequire thatTCPand IPbe presentin the 
+stack, but the manufacturer is free to implement OBEX over TCP/IP. 
+
+Note A Bluetooth vendor does not need to implement all the Bluetooth protocol layers into its product 
+in order to be Bluetooth compliant. For instance, a Bluetooth cordless phone may very well only 
+have HCI,SDP,L2CAP,and TCSimplemented into itsstack.That'sperfectlyfine because a 
+cordless phone may not need any extra functionality. 
+
+Bluetooth Network Encapsulation Protocol (BNEP) 
+
+The Bluetooth Network Encapsulation Protocol isa layer in theBluetooth stackthatallowsother 
+networking protocolsto be transmitted over Bluetooth,namelyEthernet.ABluetooth vendor hasmany 
+optionsifitwantsto implementTCP/IP networkingin itsBluetooth device. BNEP isa popular choice 
+becauseitencapsulatesTCP/IPpacketsin L2CAPpacketsbefore handing offthe data to the L2CAPlayer 
+in the stack. 
+
+Human Interface Device Protocol (HID) 
+
+The Human Interface Device Protocol is another adopted protocol in the Bluetooth specification. It was 
+originally defined in the USB specification, and it lists the rules and guidelines for transmitting information 
+to and from human interface devices like keyboards, mice, remote controls, and video game controllers. 
+
+Table 2-3 is a handy guide that gives a brief description of the layers of the Bluetooth stack and their 
+
+
+purpose. 
+
+Table 2-3: Layers of the Bluetooth Protocol Stack 
+
+SHORT 
+NAME 
+
+HCI 
+-
+L2CAP 
+SDP 
+-
+-
+RFCOMM 
+-
+-
+-
+TCS-BIN 
+-
+-
+-
+-
+-
+WAP 
+OBEX 
+-
+-
+BNEP 
+-
+
+HID 
+
+-
+-
+
+FULL NAME 
+
+-Host Controller Interface 
+Logical Link Control and 
+Adaptation Protocol 
+Service Discovery Protocol 
+RFCOMM 
+Telephony Control 
+Protocol Specification 
+Wireless Access Protocol 
+Object Exchange 
+Bluetooth Network 
+Encapsulation Protocol 
+Human Interface 
+Device Protocol 
+
+
+DESCRIPTION 
+
+The layer that interfaces the host (i.e., the PC) 
+and the controller (the Bluetooth module) 
+The layer that handles all data transmissions from 
+upper layers 
+The layer that discovers services on Bluetooth 
+devices in the area 
+The layer that allows you to create a virtual serial 
+port and to stream data 
+The layer that allows you to create control signals 
+for audio applications 
+The adopted protocol that allows you to view 
+content in Wireless Markup Language (WML) 
+The adopted protocol that allows you to send and 
+receive objects 
+The layer that encapsulates other protocol data 
+packets into L2CAP packets 
+The layer that traffics the controls signals and 
+data for input devices like keyboards and mice 
+
+
+
+Note For an exhaustive listofallthe new and upcomingBluetooth protocols,go to the Bluetooth 
+Member site at http://www.bluetooth.org. 
+
+
+Profiles 
+
+So,let'ssaythatyou own a Bluetooth-enabled PDAand a Bluetooth-enabled wirelessphone.Both ofthe 
+deviceshave Bluetooth stacks.How can youtellifyour deviceswill interactproperlyand allowyou to 
+synchronize the phone listsbetween eachother? How will you knowifyou can send a phone number from 
+the PDA to the phone? And most importantly, how can you determine if these devices will allow you to 
+
+-
+
+browse the Internet on the PDA using the phone as a wireless modem? 
+
+That's why the Bluetooth SIG defined profiles. A Bluetooth profile isa designed setoffunctionalityfor 
+Bluetooth devices. For instance, using the examples just listed, the phone and the PDA must both support 
+the Synchronization Profile inordertosynchronize data between themselves.In order to send objectdata 
+like a .vcffilefrom the PDAto thephone,bothdevicesneed to have the ObjectPush Profile implemented. 
+And finally, the PDA and the wireless phone must both support the Dial-Up Networking Profile in order for 
+
+-
+
+the PDA to wirelessly browse the Internet from the phone. If you want your Bluetooth-enabled devices to 
+
+-
+
+interact, having a Bluetooth stack is not good enough. Those devices also need to implement the same 
+
+-
+
+profile. 
+
+-
+Now, here-'sa listofmanyof theBluetooth profilesand a description ofwhat theydo.For mostof them, 
+you can basically guess what they do; the names are not cryptic. 
+
+-
+
+-
+
+Note For an exhaustive list of all the Bluetooth profiles, go to the Bluetooth Member site at 
+
+-
+
+http://www.bluetooth.org. 
+
+-
+
+-
+
+Generic Access Profile 
+
+-
+
+-
+
+The GenericAccessProfile isthe mostcommon Bluetooth profile.All other profilesuse thisprofile for 
+
+-
+
+basic connection establishment. This is the java.lang.Object in the Bluetooth Profile realm; every 
+
+-
+
+profile needs to use the functionality of the GAP. 
+
+-
+
+-
+
+Service Discovery Application Profile 
+
+The Service Discovery Application Profile is a profile that directly interacts with the Service Discovery 
+Protocol (SDP) layer in the Bluetooth protocol stack. This profile is used to find services on Bluetoothenabled 
+devicesin thearea. 
+
+Serial Port Profile 
+
+The Serial Port Profile is a profile that interacts directly with the RFCOMM layer in the Bluetooth protocol 
+stack. This profile is used to create a virtual serial port on your Bluetooth-enabled device. For instance, 
+some Bluetooth kitscome with a driver thatwill allowyour operating system to communicate over the 
+virtual serial port as if it were an actual serial port. As far as the operating system is concerned, it's just 
+another serial port, as shown in Figure 2-8. 
+
+
+-
+-
+-
+-
+-
+-
+
+Figure 2-8: As you can see in Windows 2000, the operating system thinks that COMM10 and 
+
+-
+
+COMM11 are actual serial ports! 
+
+-
+
+-
+
+Note Of course, if you want to connect to another device over the air using your virtual serial port, then 
+
+-
+
+you'llneed another Bluetooth-enabled device in the area thatalso supportstheSerial Port 
+
+-
+
+Profile. 
+
+-
+
+-
+
+Dial-Up Networking Profile 
+
+-
+If you've used a modem before, then you should be familiar with the concept of dial-up networking. The -
+
+
+Dial-Up Networking Profile allowsyouto mimicthe functionalityofa modem.Justlike the Serial Port 
+
+Profile, some Bluetooth kits come with a driver that will allow your operating system to communicate over 
+the virtual modem as if it were an actual modem (see Figure 2-8). As far as the operating system is 
+
+-
+
+-
+
+concerned, it's just another modem. 
+
+-
+
+Note For such an example to work, you'll need another Bluetooth-enabled device in the area that also 
+supports the Dial-Up Networking Profile, like a network access point or a wireless phone. 
+
+FAX Profile 
+
+Using the FAXProfile,a Bluetooth-enabled computer can send a faxwirelesslyto aBluetooth-enabledfax 
+machine or to a Bluetooth-enabled wireless phone. 
+
+Headset Profile 
+
+The HeadsetProfile isprimarilydesigned for connecting Bluetooth-enabled headsetsto Bluetoothenabled 
+wirelessphones. 
+
+LAN Access Profile 
+
+ABluetooth-enabled device such asa PC or laptopwilluse the LAN AccessProfileto connectto a 
+network access point connected to a LAN. 
+
+Personal Area Networking Profile 
+
+The PersonalArea Networking Profile isprettymuchsimilar tothe LANAccessProfile,exceptitalso has 
+support for devices to form ad-hoc networks among themselves. The PAN Profile also has a requirement 
+that BNEP be present in the underlying protocol stack. 
+
+
+Cordless Telephony Profile 
+
+The Cordless Telephony Profile allows you to use a Bluetooth-enabled handset to connect to a Bluetoothenabled 
+"landline" phone toplace calls.Forinstance,through thisprofile,you continue to receive callsto 
+your home phone,but you have the convenienceofanswering thatcallon yourBluetooth wirelessphone, 
+without using the minutes of the calling plan of your wireless phone. 
+
+-
+
+Intercom Profile 
+
+If two Bluetooth-enabled devices are within range, and they support the Intercom Profile, then they can 
+function just like regular intercoms. 
+
+-Generic Object Exchange Profile 
+
+-
+
+The GenericObjectExchange Profileisthe genericprofile thatall profilesuseiftheywantto employthe 
+
+-
+
+functionalityofthe OBEXprotocolin the Bluetooth stack. 
+
+-
+
+-
+
+Object Push Profile 
+
+-
+
+-
+
+The ObjectPush Profile providesthe functionalityfor a device to push and pull an object.Using this 
+
+-
+
+profile, though, you are limited to a certain class of objects like vCards. 
+
+-
+
+-
+
+File Transfer Profile 
+
+-
+
+-
+
+The File Transfer Profile is a more robust profile for transferring objects. You can use the File Transfer 
+
+-
+
+Profile to transfer files and folders from one Bluetooth-enabled device to another. 
+
+-
+
+-
+
+Synchronization Profile 
+
+-
+
+You use the Synchronization Profile to synchronize data between two Bluetooth-enabled devices. The 
+most common applications for this profile would be to synchronize data between a PDA and a PC. 
+
+Basic Printing Profile 
+
+The Basic Printing Profile allows a Bluetooth-enabled device to send plain text to a Bluetooth-enabled 
+printer for printing. 
+
+Hard Copy Cable Replacement Profile 
+
+The Hard Copy Cable Replacement Profile is what we call the "Advanced Printing Profile." With this 
+profile, you can print any printable document to a Bluetooth-enabled printer. If you don't already have the 
+driver for that printer, that's okay; the printer will give it to you. 
+
+Basic Imaging Profile 
+
+The BasicImaging Profile isintended to be used byimagingdeviceslike camerasfor remote control, 
+image transfers, and downloading. 
+
+Hands Free Profile 
+
+The Bluetooth-enabled hands-freekitsin automobilesuse the HandsFree Profile to allow the driver to 
+place and receive calls from a Bluetooth-enabled phone. 
+
+
+Human Interface Device Profile 
+
+Asyou mighthaveguessed,the Human Interface DeviceProfilehasa requirementthatthe HID Protocol 
+mustexistin the underlying Bluetooth stack.Thisprofiledefinesthe case scenariosfor using Bluetoothenabled 
+human interfacedeviceslike keyboardsand mice.Oneofthe goalsof thisprofile isthata 
+Bluetooth-enabled device that conforms to the HID Profile should run for three months on three AAA 
+alkaline batteries. 
+
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Profile Interdependencies 
+
+The profilesare heavilydependentupon each other,and you should alreadyknowthateveryprofile 
+depends upon the Generic Access Profile. The Bluetooth profiles were designed to be building blocks, 
+where a higher level profile is dependent upon the functionality of the lower profiles to exist. Take a look at 
+Figure 2-9 and see how the Bluetooth profiles are dependent upon each other for functionality. 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+Figure 2-9: Bluetooth profile interdependencies 
+
+-
+
+For example, in order for a PDA vendor to say that it supports the Synchronization Profile for its new 
+Bluetooth-enabled BJL 200 PDA, it also must support the Generic Object Exchange Profile, Serial Port 
+Profile,and Generic AccessProfilebecause the Synchronization Profile cannotfunction withoutthem.If a 
+phone manufacturer claims that its new Bluetooth-enabled TLJ 50 headset supports the Headset Profile, 
+then it must also include the Serial Port Profile and the Generic Access Profile. 
+
+Bluetooth Profiles vs. J2ME Profiles 
+
+Do not get Bluetooth profiles confused with J2ME profiles. J2ME profiles are a set of Java classes that 
+extendthefunctionalityofaJ2MEConfiguration.Forinstance,thePDAandMID Profilesarebotha 
+setof Java classesthatextendthe functionalityofthe Connected Limited DeviceConfiguration.On the 
+otherhand,a Bluetooth profile can beimplementedin anylanguageand on anyplatform,because it 
+refersto a definedsetoffunctionalityfor a Bluetooth-enableddevice.So,the ObjectPush Profile can 
+be implemented on a Palm OS PDA in C++, and it can also be implemented on a Bluetooth-enabled 
+printer in Assembler; it's just a defined set of functionality. 
+
+
+Personal Area Networks: Piconets and Scatternets 
+
+Whentwo or more Bluetooth-enabled devicescome within range and establish a connection,a personal 
+area network is formed. A personal area network can either be a piconet or a scatternet. Figure 2-10 
+shows Bluetooth devices in a piconet. 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+
+Figure 2-10: In a piconet, the slaves can only communicate to the master. 
+
+-
+A Bluetooth -piconet has a single master and up to seven slaves. No matter what kind of Bluetooth devices 
+are involved (they can be phones, access points, PDAs, laptops, headsets, etc.), the master of the piconet 
+
+-
+
+isthe one thatinitiatesthe connection.The device thatacceptsthe connection automaticallybecomesthe 
+
+-
+
+slave.Master/slave rolesare notpredefined,so ifa piconetexistsbetween a laptop anda PDA,either 
+
+-
+
+device could be the master or the slave. 
+
+-
+
+-
+
+Note In certain conditions, a role switch between the master and slave is allowed. These conditions 
+
+-
+
+are explained in the Bluetooth specification. 
+
+-
+
+So whathappensto the piconetifa new Bluetooth device wantsto join the piconetafter the master has 
+acquired seven slaves? Does it shut down? Will older members of the piconet get kicked off? No, actually, 
+the master of thepiconetwill notinvite new membersto join until atleastone the old membersleaves(or 
+goes into an inactive state). Now, on the other hand, if one of the slaves in the Bluetooth piconet also 
+happenstobe multipoint-capable,thenthe newcomercan createa piconetwith thatslave,thereby 
+creating a scatternet (as shown in Figure 2.11). A scatternet will also be created if the master of the 
+existing piconet becomes a slave to the newcomer. 
+
+
+Figure 2.11: A scatternet is formed when a slave in one piconet is the master in another piconet. 
+
+
+The Bluetooth Qualification Process 
+
+Okay, so what does it take to turn a product that uses Bluetooth technology into an official Bluetoothcertified 
+product? Well, you first need to join the Bluetooth SIG. How do you join? Just go to 
+http://www.bluetooth.org and fill out the membership form. After becoming a member, you need 
+to submit your product for testing by a Bluetooth Qualification Body. The Qualification Body will test your 
+
+-
+
+device against the current Bluetooth specification as well as interoperability with other devices that use 
+your Bluetooth profiles. 
+
+Note Java developers really don't need to join the Bluetooth SIG or undergo the qualification process 
+if prequalified Bluetooth materials (i.e., stacks and radios) are used in their products. However, if 
+you wantto usethatreallycool-lookingBluetooth logoon your products,then you needto join 
+the SIG. 
+
+-
+-
+
+
+Once testing hasbeencompleted,and if your devicepassesthe tests,itwill be listed on the Bluetooth 
+
+-
+
+Qualification Web site (http://qualweb.bluetoothsig.org). Most companies will postpone 
+
+-
+
+announcing their new Bluetooth-enabled product until it has been certified, so check that site often to see 
+
+"who's doing what" in Bluetooth. -
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Summary 
+
+In thischapter youlearnedall aboutBluetoothdevices,and you found outwhattheylooklike.Bynow,you 
+should alsoknow aboutthe role of the Bluetoothprotocolstack and how itinteractswith your Bluetooth 
+hardware.You should take awayfrom thischapter a finite knowledge ofBluetoothprofiles,and you should 
+knowthe purpose thattheyserve.Finally,you should be aware ofthe difference between piconetsand 
+
+-
+
+scatternets, and you should know what it takes to get a Bluetooth device certified. 
+
+Great! You now should have a good understanding of how the Bluetooth protocol works. In the next 
+chapter, we'll see what happens when we throw in Java. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Chapter 3: Before You Get Started 
+
+Okay, now that you know the ins and outs of Bluetooth, you're probably eager to find out how to integrate 
+Bluetooth withJava.Well,thischapter isallaboutdoingjustthat.Butwait! Before you learn abouthow to 
+use Bluetooth and Java, you need to know when it is not a good idea to use the two technologies together. 
+
+-
+
+When NOT to Use Bluetooth and Java 
+
+You should not use Bluetooth with Java for the following purposes: 
+
+Signal strength indicator 
+
+Voice applications 
+
+-
+-
+
+
+Distance measuring 
+
+-
+-
+
+
+The next few sections explain why to avoid those scenarios. 
+
+-
+-
+
+
+Signal Strength Indicator 
+
+-
+-
+
+
+Let's say that you have two Bluetooth units, and you want to know what the signal strength is between 
+
+-
+
+them.Agood example iswhen you wanttouse the servicesofa networkaccesspoint.Asignal strength 
+
+-
+
+indicator would letyou know ifyou were withinrange.Well,Java isnotthe ideallanguage for thatsortof 
+
+application because that kind of information is not exposed to the level where a JVM would have access to 
+
+-
+
+it.The JVMwill letyou know ifyou are within range or notwithin range;thereisno middle ground.Inthis 
+scenario, you're better off using a native language for your device such as C or C++. 
+
+-
+-
+-
+-
+
+
+Voice Applications 
+
+-
+
+Now,you've alreadyread Chapter 2,and you realize thatBluetooth isa reallygreattechnologybecause 
+you have the ability to transmit voice and data information wirelessly to other Bluetooth devices. Suddenly, 
+you getideasbubbling in your head abouthow greatitwould be to create aspeech-to-textapplication on 
+your Bluetooth-enabled phone. Unfortunately, Java (especially J2ME) is not well suited to this arena just 
+yet.Performance isa keyfactor in voice-based applications,and once again,in thiscase,you're betteroff 
+using anative languagesuch asC.However,thisapplication maybe feasible to do in Java if the Java 
+Real-Time Technologycan beincorporated. 
+
+Distance Measuring 
+
+The bestwirelesstechnologyfor accuratelymeasuring distance islightwavesandnotradio signals.Light 
+waves are direct, and the calculations can be pretty simple because the speed of light (in various 
+mediums) isprettywell documented.Using radio signalsto measure distance can be quite tricky,andone 
+of thebestwaysto do thatisto use triangulation,likeGPS transceiversdo.Whether you are using Java or 
+C,Bluetooth mightbe a viable technologyfor triangulation,butdefinitelynotforcalculating or measuring 
+accurate distances. 
+
+Note The key word here is accurate. You can definitely use Bluetooth for proximity measurement (i.e., 
+where in the building is Bruce Hopkins?). In fact, the Ericsson BlipNet does exactly that! See 
+Chapter 11 for more information on the Ericsson BlipNet. 
+
+So,toputitsuccinctly,you can onlydo whatispossible using the constraintsofthe Bluetooth technology 
+and whattheJVMexposesto you.Ifthe JVMonlygivesyouaccessto the RFCOMMlayer for 
+communication,thenyou're stuckwith it.Ifthe OBEXlayer isnotexposedto the JVM,then don'texpectto 
+be able tosendobjects.To increase application portability,your Java Bluetoothvendor shouldimplement 
+the Java Bluetooth specification created through the JCP. 
+
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+-
+
+
+Understanding the JCP 
+
+The JCP is the Java Community Process, and it is the formal procedure to get an idea from a simple 
+conceptincorporated into the Java standard.Thisprocessallowsdevelopersand industryexpertsto 
+shape the future ofthe Java standard.Popular APIslike JavaUSB,Java Real-Time,Java Printing,Java 
+New I/O, J2ME MIDP 1.0, J2ME MIDP 2.0, JDBC 3.0, EJB 2.0, and even JDK 1.4 all went through the 
+
+-
+
+Java CommunityProcess.Ifyou wantto add some newfunctionalityto the Java language,or ifyou want 
+to suggest a new API, or if you think that some new classes should have a package name of java.* or 
+javax.*, then you need to go through the JCP. 
+
+The Role of the JSR-82 
+
+AJSRisa Java SpecificationRequestinthe Java CommunityProcess.The JSR-82 istheformal JCP 
+
+-
+
+name for the Java APIs for Bluetooth. When a proposed JSR is approved, an Expert Group is formed by 
+the specification lead.The specification lead for the JSR-82wasMotorola,and together with the JSR-82 
+
+-
+
+-
+
+ExpertGroup,theycreated the official Java Bluetooth APIs.Thefollowingcompaniesparticipated inthe 
+
+-
+
+JSR-82 Expert Group: 
+
+-
+-
+
+
+Extended Systems 
+
+-
+IBM -
+
+
+Mitsubishi 
+
+-
+-
+
+
+Newbury Networks 
+
+-
+Nokia -
+
+
+Parthus Technologies 
+
+-
+-
+
+
+Research in Motion (RIM) 
+Rococo Software 
+Sharp Electronics 
+Sony Ericsson 
+Smart Fusion 
+Smart Network Devices 
+Sun Microsystems 
+Symbian 
+Telecordia 
+Vaultus 
+Zucotto 
+
+
+The JSR-82 Expert Group also had three individual experts: Peter Dawson, Steven Knudsen, and Brad 
+Threatt. 
+
+What Is the RI and TCK? 
+
+According tothe Java Communityprocess,the specification lead companyisresponsible for creatinga 
+Reference Implementation (RI) and also a Technology Compatibility Kit (TCK). The Reference 
+Implementation isbasicallya proofof conceptto prove thatthe specification can be implemented.Other 
+
+
+companiesare free to implementthe JSR-82,and inorder tocertifythattheir vendorkitiscompliantto the 
+JSR-82 standard, that vendor's product must pass the TCK. 
+
+The JSR-82 specificationactuallyhastwo Reference Implementationsand TechnologyCompatibilityKits. 
+Whydid theydo this? Recallin Chapter 2 thatthe Bluetooth SIGhasadopted some preexisting protocols 
+inthe Bluetoothspecification,namelyOBEX.The OBEXprotocol wasusedwith infrared technologyfor 
+objecttransmissionslong before Bluetooth waseven invented.The designersofthe Java Bluetooth 
+
+-
+
+specification decided not to tie OBEX to Bluetooth when creating the Java Bluetooth standard. Therefore, 
+the JSR-82 actually consists of two independent packages: 
+
+javax.bluetooth (the 13 classes and interfaces that are needed to perform wireless 
+
+communication with the Bluetooth protocol) 
+
+javax.obex (the 8 classes that are needed to send objects between devices, independent of the 
+
+-
+
+transport mechanism between them) 
+
+-
+
+-So,toanswer your next question,yes,you can use OBEXwithoutBluetooth. Bluetooth issimplyoneof 
+
+many transports with which OBEX can operate. 
+
+-
+
+-
+
+The classesand interfacesthatcomprise the Java Bluetooth specification arebrieflydescribed in Tables 
+
+-
+
+3-1 and 3-2.These classesand their methodsare coveredasneededin the following chapters,and their 
+
+-
+
+APIs are listed in detail in Appendix A and Appendix B. 
+
+-
+
+-
+
+Table 3-1: Classes in the javax.bluetooth Package 
+
+-
+-
+-
+-
+-
+-
+-
+CLASS NAME 
+DiscoveryListener 
+L2CAPConnection 
+L2CAPConnectionNotifier 
+ServiceRecord 
+DataElement 
+DeviceClass 
+
+DiscoveryAgent 
+LocalDevice 
+RemoteDevice 
+UUID 
+BluetoothConnectionException 
+
+
+DESCRIPTION 
+TheDiscoveryListener interface allows an 
+application to receive device discovery and service 
+discovery events. 
+TheL2CAPConnection interface represents a 
+connection-oriented L2CAP channel. 
+TheL2CAPConnectionNotifier interface provides 
+an L2CAP connection notifier. 
+TheServiceRecord interface describes 
+characteristics of a Bluetooth service. 
+TheDataElement class defines the various data 
+types that a Bluetooth service attribute value may have. 
+TheDeviceClass class represents the class of 
+device (CoD) record as defined by the Bluetooth 
+specification. 
+TheDiscoveryAgent class provides methods to 
+perform device and service discovery. 
+TheLocalDevice class represents the local 
+Bluetooth device. 
+TheRemoteDevice class represents a remote 
+Bluetooth device. 
+TheUUID class defines universally unique identifiers. 
+ThisBluetoothConnectionException is thrown 
+when a Bluetooth connection (L2CAP, RFCOMM, or 
+OBEX) cannot be established successfully. 
+
+BluetoothStateException 
+
+
+ServiceRegistrationException 
+
+-
+
+
+TheBluetoothStateException is thrown when a 
+request is made to the Bluetooth system that the 
+system cannot support in its present state. 
+TheServiceRegistrationException is thrown 
+when there is a failure to add a service record to the 
+local Service Discovery Database (SDDB) or to modify 
+an existing service record in the SDDB. 
+
+
+Table 3-2: Classes in the javax.obex Package 
+
+CLASS NAME 
+
+-
+-Authenticator 
+-
+-
+-
+ClientSession 
+-
+-HeaderSet 
+-
+-
+-
+Operation 
+-
+-
+SessionNotifier 
+-
+-PasswordAuthentication 
+-
+-
+ResponseCodes 
+ServerRequestHandler 
+
+
+DESCRIPTION 
+This interface provides a way to respond to authentication 
+challenge and authentication response headers. 
+TheClientSession interface provides methods for OBEX 
+requests. 
+TheHeaderSet interface defines the methods that set and get 
+the values of OBEX headers. 
+TheOperation interface provides ways to manipulate a single 
+OBEX PUT or GET operation. 
+TheSessionNotifier interface defines a connection notifier 
+for server-side OBEX connections. 
+This class holds user name and password combinations. 
+TheResponseCodes class contains the list of valid response 
+codes a server may send to a client. 
+TheServerRequestHandler class defines an event listener 
+that will respond to OBEX requests made to the server. 
+
+The Benefits of the Java Bluetooth API 
+
+There are two key advantages to using the official Java Bluetooth API versus a C-based (or native) API: 
+API is independent of the stack and radio 
+Standardized Bluetooth API 
+
+-
+
+API Is Independent of Stack and Radio 
+
+So what makes the official Java Bluetooth API better than a C/C++ Bluetooth API? One of the principle 
+reasons is that the JSR-82 API is independent of the stack and the Bluetooth hardware. That gives you the 
+abilityto write applicationswithoutanyknowledge ofthe underlying Bluetooth hardware or stack.And 
+
+-
+
+that's essentially what Java gives you today. If you write standard Java code (without any native methods), 
+
+-
+
+you can run your code on basicallyanyhardware platform and on anyOSwith little or nomodification. 
+
+-
+
+Whether it's an appli-cation, applet, midlet, servlet, or EJB, you can code your application on one platform 
+
+-
+
+and deploy to another platform. 
+
+-
+-
+
+
+The Only Standardized Bluetooth API 
+
+-
+-
+
+
+If you have a C/Cbased Bluetooth SDK, then you are basically at the mercy of the vendor. There is no 
+
+-
+
+standard for a C/Cbased Bluetooth SDK, so each vendor is free to name functions and methods to 
+
+-
+
+whatever theychoose.Vendor Amayhave five profilesin itsSDK,and Vendor Bmayonlyhavethree.If 
+
+-
+
+you want to change Bluetooth hardware or stack libraries, then you'll need to rewrite your Bluetooth 
+
+-
+
+application and/or change itsfunctionality.Because the JSR-82 istheofficialJavaAPIfor Bluetooth,all 
+
+vendorswhoimplementthestandard must include a core setof layersand profilesin their Bluetooth SDK. 
+
+-
+
+-
+
+AJSR-82-compliantBluetoothstack mustincludethe following layers: 
+
+-
+-
+
+
+Host Controller Interface (HCI) 
+Logical Link Control and Adaptation Protocol (L2CAP) 
+Service Discovery Protocol (SDP) 
+RFCOMM 
+
+
+These profiles are also required: 
+Generic Access Profile 
+Service Discovery Application Profile 
+Serial Port Profile 
+Generic Object Exchange Profile 
+CROSS-See "The Bluetooth Protocol Stack" and "Profiles" in Chapter 2 for details on the 
+
+REFERENCE Bluetooth protocol stack and profiles just in case you forgot. 
+The firstthing thatmaycome to your mind is,"Hey,waita minute,doesn'tthe Bluetoothspecification 
+
+contain more profilesthan that? Whydidtheyimplement onlya few profilesinJava?" Well,here are two 
+major reasons: 
+First of all, the JSR-82 team wanted to get the Java Bluetooth specification in the hands of developers as 
+
+quicklyaspossible.Recall in Chapter 2 thatBluetooth profilesare designedto be functionalenough 
+where higher profilesextend thefunctionalityofthe lower,or base,profiles.Refer to Figure 2-9, which 
+shows a diagram of the relationship of the profiles of the Bluetooth specification. 
+
+
+Secondly,byimplementing thebaseprofiles(Generic AccessProfile,Service DiscoveryApplication 
+Profile, Serial Port Profile, and Generic Object Exchange Profile), the SDK vendor or the application 
+developer isfreeto implementthe higher profilesof theBluetooth specification. 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+What You Need to Get Started 
+
+We knowthatthisquestion hasbeen on your mind for awhile.Well,here'sa listof whatyou'll need: 
+
+Bluetooth devices (at least two) 
+
+Bluetooth host (at least one) 
+
+-
+
+Bluetooth stack 
+
+Java Bluetooth API 
+
+Now let's cover all these components in detail and describe how they all work together. 
+
+-
+
+Bluetooth Devices 
+
+-
+
+-
+
+Bluetooth devices were covered in Chapter 2, but just in case you forgot, take another look at Figures 2-1,
+
+-
+
+2-2, and 2-3. Remember, Bluetooth devices are simply radios, so getting a single device is just like getting 
+
+-
+
+a single walkie talkie; it's pretty useless. If your Bluetooth device is point-to-point capable, then that means 
+
+-
+
+itcan onlytalkto a singleBluetooth device ata time.Ifitismultipointcapable,then itcan talkto up to 
+
+-
+
+seven devices at a time. The Bluetooth device is also known as the controller. 
+
+-
+
+-
+
+Bluetooth Host 
+
+-
+
+-
+
+The Bluetooth host is the computer that is physically connected to the Bluetooth device. For the most part, 
+
+-
+
+this is your desktop PC, laptop, PDA, or smart phone. Usually, the connection is USB, RS-232, or UART. 
+
+-
+
+Now, you are definitely going to need two Bluetooth devices, but you can get away with having only one 
+Bluetooth host. How does this work? Well, if you have a PC that has two serial ports or two USB ports (or 
+
+-
+
+-
+
+both), then you can connect both of your Bluetooth devices to your PC's ports. In order for this to work, you 
+
+-
+
+need to start two instances of your JVM; each JVM will have its own Bluetooth device. 
+
+The Bluetooth host must meet the minimum requirements for the CLDC, so you need at least 512k total 
+memory for the JVM. 
+
+Bluetooth Stack 
+
+ABluetooth stack isrequired in order for a Bluetooth host(the PC)to properlycommunicate to the 
+Bluetooth device (thecontroller).If you go backto Figure 2-6,which showsa diagram ofthe Bluetooth 
+stack, the bottom layer of the stack is the Host Controller Interface! See, it does make sense. The Host 
+Controller Interface isliterallythe software required to interface the Bluetooth hostand the Bluetooth 
+device (the controller). 
+
+Since thisbookisall aboutJava and Bluetooth,you mightthink thatthe Bluetooth stackneedsto be 
+written completelyin the Java language.Well,notexactly.Some Bluetooth vendorshaveimplementeda 
+completelyall-Javastack,while othershave implemented a Java interface (i.e.,JNIor other means) to a 
+native stack. Either way, you need to access the stack through Java code, whether or not the stack is in 
+Java. 
+
+Java Bluetooth API 
+
+Finally,you're going toneeda setof librariestointerface with your stack.Forthemostpart,acompanywill 
+sell you a Java Bluetooth APIand Bluetooth stacktogether ina kit.Justbe sure toaskthem what 
+Bluetooth devices their kit supports. 
+
+Another question to ask your Java Bluetooth kit vendor is if their product is JSR-82 compliant. Currently, 
+JSR-82 can onlybeimplementedon theJ2MEplatform.JSR-82 cannotbe implemented on the J2SE 
+
+
+platform because the J2SE does not support the Generic Connection Framework. Hopefully, the Generic 
+Connection Frameworkwill be implemented byJDK 1.5. 
+
+Note The official JSR toimplementtheGCF in the JDKisJSR-197. 
+
+Does this mean that it is impossible to do Java and Bluetooth development on the J2SE platform? No, it 
+simply means that whatever Java Bluetooth kit that you obtain for J2SE will not be compliant with JSR-82 
+
+-
+
+until the Generic Connection Framework is implemented in J2SE. The major ramification of this problem is 
+thatyour J2MEandJ2SEcode maybedrasticallydifferentfrom eachother, even ifyouare doing the 
+same thing. 
+
+Java Bluetooth Vendor SDKs 
+
+So,who'soffering Java BluetoothSDKs,and which are JSR-82 compliant?Fortunately,there isa plethora 
+of Java Bluetooth SDKs to fit the needs that your application requires. Vendor support is available for Java 
+
+-
+
+-
+
+Bluetooth development on a wide range of operating systems and JVM platforms. Table 3-3 displays 
+
+-
+
+various attributes of many Java Bluetooth SDKs. 
+
+-
+
+-
+
+Table 3-3: Java Bluetooth SDK Vendors [*] 
+
+-
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+COMPANY 
+NAME 
+JSR-82 
+JAVAX.BLUETOOTH 
+SUPPORT 
+JSR-82 
+JAVAX.OBEX 
+SUPPORT 
+SUPPORTED 
+JAVA 
+PLATFORMS 
+SUPPORTED 
+OPERATING 
+SYSTEMS 
+Atinav Yes Yes J2ME, J2SE Win-32, Linux, 
+Pocket PC 
+BlueGiga No No Waba JVM uClinux 
+Ericsson No No J2SE Win-32, Linux 
+Esmertec Yes No J2ME Win-32, Palm 
+OS, Pocket PC, 
+many others 
+Harald No No J2SE Win-32, Linux, 
+others 
+Possio Yes Yes J2ME Win-32, Linux 
+Rococo Yes Yes J2ME, J2SE Win-32, Linux, 
+Palm OS, 
+Pocket PC 
+Smart 
+Network 
+Devices 
+Yes No J2ME HyNetOS 
+SuperWaba No No Waba JVM Palm OS 
+Zucotto No No J2ME, J2SE Win-32 
+[*]The information in this table is subject to change, so check the companion Web site 
+http://www.javabluetooth.com for up-to-date information. Palm OS is a registered 
+trademark of Palm, Inc. 
+
+Summary 
+
+
+Thischapter hasonlyskimmed the surface ofhowtointegrate Java Bluetooth.You learned aboutthe 
+advantages of using Java versus C for application development. You also learned about JSR-82 as well 
+as what it takes to get things up and running. 
+
+-
+
+In the next chapter, we'll focus more on integrating Java and Bluetooth, as well as introduce some 
+example code. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Chapter 4: Understanding the Java Bluetooth API 
+
+Thischapter will be your formal introduction to the Java Bluetooth API.We'll cover a vastmajorityofthe classes 
+in the javax.bluetooth package and examine how to use them in your applications. Rather than looking at 
+everyclassand interface individually,we'lltake a differentapproach byfirstlooking atthe basic componentsof 
+typicalBluetooth application (Java or otherwise).After we have identifiedthese components,we'llexplain howt 
+
+-
+
+use the Java Bluetooth API in order to create wireless applications. 
+
+The Basic Components of a Bluetooth Application 
+
+The basiccomponentsofanyBluetooth application consistofthe following items: 
+
+-
+
+Stack initialization 
+
+-
+
+Device management 
+
+-
+
+-
+
+Device discovery 
+
+-
+
+-
+
+Service discovery 
+
+-
+
+Service registration 
+
+-
+
+-
+
+Communication 
+
+-
+The Java Bluetooth specification addsa specialcomponentto the mixcalled the Bluetooth Control Center 
+(BCC). We-
+'lltalkabouttheBCCinthe nextsection becauseinsomevendorimplementations,stackinitializatio 
+is handled through the BCC. 
+
+-
+
+-
+
+-
+
+-
+
+The Bluetooth Control Center 
+
+-
+
+The Bluetooth Control Center is an awkward beast due to its ambiguity. It is required to exist in a JSR-82 
+compliant implementation, but there are no guidelines in the official Java Bluetooth specification about how it 
+should be implemented.One vendor could implementthe BCCasasetofJava classes,andanother vendor 
+could implement it as a native application on the Bluetooth host. But no matter how it is implemented, it is an 
+integral part of your security architecture because the BCC defines device-wide security settings for your 
+Bluetooth device. 
+
+Now, for the most part, if you are working with a JSR-82-compliant Java Bluetooth development kit within your 
+development environment, then the BCC will probably be implemented as one or more Java classes. But 
+because the BCC is vendor specific, the classes that form the BCC will not have a javax.bluetooth packag 
+name;theywillbein the form ofsomethinglike com.vendor.bluetooth.bcc. Now, if you're working with a 
+device that comes with the Java Bluetooth standard (like a mobile phone or a PDA), then there is a high 
+probabilitythatthe BCCwould beimplementedasa native application on thatdevice. 
+
+According tothe Java Bluetoothspecification,these arethe requirementsof the BCC: 
+
+Include base security settings of the device. 
+
+Provide a list of Bluetooth devices that are already known. The devices do not need to be within range. 
+
+Provide a listofBluetooth devicesthatare alreadytrusted.The devicesdo notneed to be within range. 
+
+Provide a mechanism to pair two devices trying to connect for the first time. 
+
+Provide a mechanism to provide for authorization of connection requests. 
+
+InformationcontainedintheBCCmustnotbemodifiedoralteredotherthanbytheBCC itself. 
+
+Depending upon the JSR-82 implementation thatyou're using,the BCC mayneed to be packagedand deploye 
+
+
+with your application code. 
+
+Stack Initialization 
+
+Now before you can do anything, your stack needs to be initialized. Remember, a Bluetooth stack has direct 
+accessto the underlying Bluetooth device.Stackinitialization can consistofa number ofthings,butitsmain 
+
+-purpose is to get the Bluetooth device ready to start wireless communication. Stack initialization sequences can 
+vary, and it's heavily dependent upon the underlying OS and Bluetooth radio. In some cases (in particular, with 
+the RococoPalm DK) no codeisneeded atallto initialize your stack. In other cases,you'll need to write a bitof 
+code to getyour stack initialized because you need to specifybaud ratesfor your RS-232 interface. 
+
+For instance, Listing 4-1 shows the snippet of code that you would need in order to initialize your stack if you we 
+using the Atinav SDK with a RS-232-based Bluetooth device. 
+
+-
+-
+
+
+Listing 4-1: Stack Initialization Code for the Atinav SDK 
+
+-
+-
+
+
+import com.atinav.bcc.*; 
+... 
+
+
+-BCC.setPortName("COM1");
+
+BCC.setBaudRate(57600);
+
+-
+
+BCC.setConnectable(true);
+BCC.setDiscoverable(DiscoveryAgent.GIAC); 
+
+-
+
+-
+
+... 
+
+-
+-
+
+
+-
+
+-
+
+Esmertec takesa differentapproach for stackinitialization.TheirJSR-82 implementation and stacktendsto be 
+
+-
+
+used mostlybywirelessdevice OEMs. Listings 4-2 and 4-3 showthe Java classesthatwould be partofa startu 
+
+-
+
+sequence to initialize the stack for the entire device. After the device has started (which consequently means th 
+
+-
+
+the stackisalso initialized),other Java applicationsthat reside on the device no longer need to include code to 
+initialize the stack. 
+
+Listing 4-2: BluetoothSetup1.java 
+
+import com.jbed.bluetooth.*;
+import java.io.IOException; 
+
+public class BluetoothSetup1 { 
+
+private static int device;
+private static BCC myBCC;
+static {
+
+
+device = DeviceProperties.DEVICE_1;
+
+try {
+myBCC = BCC.getInstance();
+myBCC.startUp(device); 
+
+
+myBCC.initDriver();
+System.out.println("Bluetooth Started");
+
+
+} catch (IOException exc) {
+System.out.println("IOException: " + exc.getMessage());
+exc.printStackTrace();
+System.out.println("Bluetooth Probably NOT Started "); 
+
+}
+}
+} 
+
+
+Listing 4-3: DeviceProperties.java 
+
+import com.jbed.bluetooth.*;
+
+import com.jbed.bluetooth.HciTransport;
+import java.util.Hashtable; 
+
+-
+
+public final class DeviceProperties { 
+
+public static final int DEFAULT = 0;
+public static final int ERICSSON = 1;
+
+
+-
+
+public static final int CSR = 2;
+
+-
+
+public static final int SILICONWAVE = 3;
+
+-
+
+public static final int NON_SECURE_MODE_1 = 1;
+
+-
+
+public static final int SERVICE_LEVEL_MODE_2 = 2;
+
+-
+
+public static final int LINK_LEVEL_MODE_3 = 3;
+
+public static final int TRUSTED_DEVICE = 0;
+
+-
+
+public static final int UNTRUSTED_DEVICE = 1;
+
+-
+
+public static final int UNKNOWN_DEVICE = 2;
+public static final int AUTHORISATION_REQUIRED = 0x1;
+
+-
+
+-
+
+public static final int AUTHENTICATION_REQUIRED = 0x2;
+
+-
+
+public static final int ENCRYPTION_REQUIRED = 0x4;
+
+-
+
+static int SERVICE_TABLE_SIZE = 32; 
+
+-
+
+static int DEVICE_TABLE_SIZE = 8; 
+
+-
+
+public static final int DEVICE_1 = 0;
+
+-
+
+public static final int DEVICE_2 = 1;
+
+-
+
+static int NAP_GN_MODE = DEVICE_2; 
+
+-
+
+static int PANU_MODE = DEVICE_1; 
+static int DATA_MTU = 1691; 
+static int HEADER_LENGTH = 14; 
+public static int maximumServiceRecordCount = 0xffff;
+public static int maximumAttributeByteCount = 0xffff;
+static int SDP_SERVER_THREADS = 4; 
+static int SDP_CLIENT_THREADS = 4; 
+static int BNEP_CHANNELS = 4; 
+static int MAX_IN_L2CAP_BUFFERS = 32; 
+static int SDP_THREAD_TIMEOUT = 120000; 
+static int BLUETOOTH_EVENT_TIMEOUT = 180000; 
+public static String DEVICE1_NAME = "Little Device1";
+public static String DEVICE2_NAME = "Little Device2";
+static int DEVICE1_IP = 0x0a110101; // 10.17.01.01
+static int DEVICE2_IP = 0x0a110102; // 10.17.01.02 
+static int NETMASK = 0xFFFFFF00; // 255.255.255.0
+static int BROADCAST = 0x0a1101FF; // 10.17.01.255
+static int DST_UUID = Sdp.UUID_PANU;
+static int SRC_UUID = Sdp.UUID_GN; 
+
+
+Hashtable ht; 
+private ExternalSecurityControlEntity myEsce;
+String pin = "123";
+HciTransport hciTransport; 
+
+
+String device1SerialPort = "COM1";
+String device2SerialPort = "COM1"; 
+
+
+
+int device1BaudRate = 19200; // 38400; //57600; //9600; //115200;
+int device2BaudRate = 19200; // 57600; //38400; //9600; //115200;
+int roleSwitch = HciConnectionTable.REFUSE_ROLE_SWITCH; 
+int securityMode = SERVICE_LEVEL_MODE_2; 
+int device2BaudRate = 19200; // 57600; //38400; //9600; //115200;
+int roleSwitch = HciConnectionTable.REFUSE_ROLE_SWITCH; 
+int securityMode = SERVICE_LEVEL_MODE_2; 
+
+DeviceProperties(int device) {
+ht = new Hashtable();
+
+-
+
+myEsce = new ESCESample(pin); 
+
+// SerialIFHciTransport is a simple UART connection
+if (device == DEVICE_1) {
+hciTransport = new SerialIFHciTransport(device1SerialPort,
+
+
+device1BaudRate);
+-// Human readable form of the device name
+-ht.put("bluetooth.device.name", DEVICE1_NAME);
+-} else {
+-hciTransport = new SerialIFHciTransport(device2SerialPort,
+
+
+device2BaudRate);
+
+-
+
+// Human readable form of the device name
+
+-
+
+ht.put("bluetooth.device.name", DEVICE2_NAME); 
+
+-
+
+}
+
+-
+
+-
+
+ht.put("bluetooth.api.version", "1.0a");
+
+-
+
+ht.put("bluetooth.security.mode", Integer.toString(securityMode));
+
+-
+
+ht.put("bluetooth.l2cap.receiveMTU.max", Integer.toString(DATA_MTU));
+
+-
+
+ht.put("bluetooth.connected.devices.max", "7");
+
+-
+
+ht.put("bluetooth.connected.inquiry", "true");
+
+-
+
+ht.put("bluetooth.connected.page", "true");
+
+-
+
+ht.put("bluetooth.connected.inquiry.scan", "true");
+
+-ht.put("bluetooth.connected.page.scan", "true");
+ht.put("bluetooth.master.switch", "true");
+ht.put("bluetooth.sd.trans.max", Integer.toString(SDP_CLIENT_THREADS));
+ht.put("bluetooth.sd.attr.retrievable.max", "64"); 
+
+testProperties(); 
+} 
+
+ExternalSecurityControlEntity getEsce() {
+return myEsce; 
+} 
+
+private void testProperties() {
+int i; 
+
+if (hciTransport == null) {
+throw new Error("No connection to Host Controller defined"); 
+} 
+
+i = getInt("bluetooth.security.mode"); 
+
+if (i < NON_SECURE_MODE_1 || i > LINK_LEVEL_MODE_3)
+throw new Error("bluetooth.security.mode must be NON_SECURE_MODE_1,
+SERVICE_LEVEL_MODE_2, or LINK_LEVEL_MODE_3");
+if (getInt("bluetooth.l2cap.receiveMTU.max") < 48) 
+
+
+throw new Error("bluetooth.l2cap.receiveMTU.max must be at least" +
+
+" 48 bytes, default value is 672"); 
+}
+private int getInt(String prop) {
+
+
+return Integer.parseInt((String) ht.get(prop)); 
+}
+} 
+
+-
+
+So,aswestated earlier,stack initialization mustoccur beforeyou can do anyreal work in your Bluetooth 
+application (whether you invoke it directly in your code or not). 
+
+-
+
+Device Management 
+
+-
+
+-
+
+LocalDevice,RemoteDevice, and DeviceClass are the classes in the Java Bluetooth specification that 
+
+-
+
+form theGenericAccessProfile andallowyou to perform device management.These classesallow you to que 
+
+some statistical information aboutyour ownBluetooth device (LocalDevice) and alsosome informationon th 
+
+-
+
+devices in the area (RemoteDevice). The DeviceClass object gives you information about the official class 
+
+-
+
+device (CoD) as defined in the Bluetooth specification. 
+
+-
+
+-
+
+javax.bluetooth.LocalDevice 
+
+-
+
+-
+
+Thereisa famousquote thatsays,"Know thyself." Well,thisclassallowsyou to do exactlythat.The 
+
+-
+
+LocalDevice class is the class that gives you information about yourself, the local Bluetooth device. Being a 
+
+-
+
+singleton object,you can onlyhave a single instance of thisobjectinyour JVMata time.Itsconstructor is 
+
+-
+
+private, so you can instantiate it by using the static getLocalDevice() method: 
+
+-
+
+-
+
+LocalDevice localdevice = LocalDevice.getLocalDevice(); 
+
+-
+
+public String getBluetoothAddress() 
+
+Bluetooth devices have unique addresses, which are quite similar to MAC addresses for network cards on your 
+PC.Thisclassallowsyou to find outwhat your Bluetooth addressiswiththe getBluetoothAddress() 
+method. It returns a 12-character String in the form of something like 00FE3467B092. In most cases, your 
+
+Bluetooth radio showswhatyour addressissomewhere externally,butit'snice to have a wayto accessit 
+programmatically. 
+
+public boolean setDiscoverable(int mode) 
+
+In order to allow remote Bluetooth devicesto find your device,you need to setthe discoverymode ofyour 
+Bluetooth device. Table 4-1 contains a list of valid modes and descriptions for the Bluetooth discovery modes. 
+
+Table 4-1: Bluetooth Discovery Modes 
+
+ACCESS MODE FULL NAME DESCRIPTION VALUE 
+NOT_DISCOVERABLE Not Discoverable Don't allow any devices to discover 
+your device. 
+0 
+GIAC General/Unlimited 
+Inquiry Access Code 
+Allow all devices to discover your 
+device. 
+10390323 
+LIAC Limited Inquiry Access 
+Code 
+A temporary access mode that will 
+revert back to a previous state after 
+1 minute. 
+10390272 
+
+Onequestion thatmightbe on your mind iswhythevaluesfor the accessmodesare0,10390272,and 
+10390323.Wouldn'titbe simpler for the valuesto be somethinglike 0,1,and 2?Well,the codesfor 
+NOT_DISCOVERABLE,LIAC, and GIAC are all defined in theBluetooth Assigned Numbersdocumentfrom 
+http://www.bluetooth.org.Each entryinthe document(which hasmorethan just codesfor Bluetooth 
+discoverymodes) hasaunique code in hexadecimal format.The actualcodesfor LIAC and GIAC as described 
+inthe BluetoothAssigned Numbersdocumentare 0x9E8B00 (for LIAC) and 0x9E8B33 (for GIAC). For your 
+convenience,these valuesare available to you aspublic constantsin the DiscoveryAgent class: 
+
+-
+
+// javax.bluetooth.DiscoveryAgent.java 
+... 
+public static final int NOT_DISCOVERABLE = 0;
+public static final int LIAC = 0x9E8B00 // 10390272 
+public static final int GIAC = 0x9E8B33 // 10390323; 
+
+
+-
+
+... 
+
+-
+
+-
+
+-
+
+public int getDiscoverable() 
+
+-
+
+-
+
+Call thismethod ifyouwant to know the currentdiscoverymode ofyour Bluetoothdevice.Thiswill (obviously) 
+
+-
+
+return an int that's either NOT_DISCOVERABLE,LIAC, or GIAC. 
+
+-
+
+-
+
+javax.bluetooth.RemoteDevice 
+
+-
+
+-TheRemoteDevice class gives you access to a single remote Bluetooth device in the area. The most common 
+
+way to obtain a reference to a RemoteDevice is through device discovery, which is covered in the next section 
+
+-
+
+Here are two useful methods that pertain to device management. 
+
+-
+
+-
+
+public final String getBluetoothAddress() 
+
+-
+
+-
+
+As you probably have already assumed, this method returns to you the 12-character Bluetooth address of the 
+remote device. 
+
+public String getFriendlyName(boolean alwaysAsk) 
+
+Knowing the Bluetooth address of the RemoteDevice isfine,butit iseven better to knowthe "friendlyname" o 
+thatdevice.The friendlyname ofa Bluetooth device issomething like "Andrew'sPDA","Home Office Printer",o 
+"Ranjith's MP3 Player". 
+
+javax.bluetooth.DeviceClass 
+
+Thisclassrepresentsthe classofdevicein the Bluetooth specification. Adevice classissimplya classification o 
+Bluetooth devices.Whyisthisclassuseful? Well,bysimplycalling the methodsofthisclass, you can determine 
+what kind of devices are in the area, like computers, laptops, phones, PDAs, access points, etc. The methods 
+providedto accomplish thistaskare getMinorDeviceClass() and getMajorDeviceClass(), both of 
+which return an int.Table 4-2 showssome common major andminor device classes. 
+
+Table 4-2: Bluetooth Major and Minor Device Classes [*] 
+
+MAJOR 
+CLASS 
+MINOR 
+CLASS 
+MAJOR CLASS 
+DESCRIPTION 
+MINOR CLASS DESCRIPTION 
+0 Misc. major device 
+256 0 Computer Unassigned, misc. 
+256 4 Computer Desktop 
+256 8 Computer Server 
+
+256 
+12 
+Computer 
+Laptop 
+256 
+16 
+Computer 
+Sub-laptop 
+256 
+20 
+Computer 
+PDA 
+256 
+24 
+Computer 
+Watch size 
+-
+
+-768 
+33每50% utilized 
+LAN/network access point 
+96 
+-768 
+50每76% utilized 
+LAN/network access point 
+128 
+-
+-768 
+67每83% utilized 
+LAN/network access point 
+160 
+-768 
+83每99% utilized 
+LAN/network access point 
+192 
+-
+-768 
+100% utilized, no service available 
+LAN/network access point 
+224 
+-1024 
+Unassigned, misc. 
+Audio/video device 
+0 
+-
+-1024 
+Headset (must conform to the 
+Headset Profile) 
+Audio/video device 
+4 
+1024 
+Hands-free device 
+Audio/video device 
+8 
+1024 
+Microphone 
+Audio/video device 
+16 
+1024 
+VCR 
+Audio/video device 
+44 
+1024 
+Video game system 
+Audio/video device 
+72 
+1280 
+Keyboard 
+Computer peripheral 
+64 
+1280 
+Mouse, trackball, etc. 
+Computer peripheral 
+128 
+1280 
+Remote control 
+Computer peripheral 
+12 
+1536 
+Display device 
+Imaging device 
+16 
+1536 
+Camera 
+Imaging device 
+32 
+1536 
+Scanner 
+Imaging device 
+64 
+1536 
+Printer 
+Imaging device 
+128 
+7936 
+Unclassified major device 
+[*]This table has a majority of the major and minor device classes listed in the Bluetooth Assigned Numbers 
+document on the Bluetooth Web site: http://www.bluetooth.org. 
+So,that'saboutall ittakesto perform device managementwith theJavaBluetooth APIs.Now,let'stake a look 
+the concept in Bluetooth that allows you to discover other Bluetooth devices: device discovery. 
+
+512 
+-0 
+Phone 
+Unassigned, misc. 
+512 
+4 
+Phone 
+Cellular 
+512 
+8 
+Phone 
+Household cordless 
+512 
+12 
+Phone 
+Smart phone 
+-512 
+16 
+Phone modem 
+-
+-768 
+0 
+LAN/network access point 
+Fully available 
+-768 
+32 
+LAN/network access point 
+1每17% utilized 
+-768 
+64 
+LAN/network access point 
+17每33% utilized 
+
+Device Discovery 
+
+Your Bluetooth device hasno idea ofwhatother Bluetooth devicesare in the area.Perhapsthere arelaptops, 
+desktops, printers, mobile phones, or PDAs in the area. Who knows? The possibilities are endless. In order to 
+find out, your Bluetooth device will use the device discovery classes that are provided in the Java Bluetooth API 
+see what's out there. 
+
+-
+
+Which Bluetooth devices should use device discovery? Well, if you are planning to use a peer-to-peer applicatio 
+in Bluetooth, like two PDAs in a chat session, then either device would use device discovery to find the other 
+device.Ifyou are planning to use aclient-server type application,like printing from a lap-top to aprinter,then th 
+clientismostlikelyto perform device discovery.Itdoesn'tmake sense for the printer to constantlylook for 
+devices that want to print something. 
+
+Now,let'stake a lookatthe two classesneeded in order for your Bluetoothdeviceto discover remote Bluetooth 
+
+-
+
+devices in the area: DiscoveryAgent and DiscoveryListener.
+
+-
+
+-
+
+javax.bluetooth.DiscoveryAgent 
+
+-
+
+-
+
+After getting a LocalDevice object, the most logical next step for device discovery is to instantiate the 
+
+-
+
+DiscoveryAgent object. You accomplish this task by calling LocalDevice.getDiscoveryAgent(). 
+
+-
+
+-
+
+LocalDevice localdevice = LocalDevice.getLocalDevice();
+
+-
+
+DiscoveryAgent discoveryagent = localdevice.getDiscoveryAgent(); 
+
+-
+
+-
+
+When you want to discover other Bluetooth devices in the area, DiscoveryAgent gives you two methods to 
+work with: startInquiry() and retrieveDevices(). 
+
+-
+
+-
+
+-
+
+public boolean startInquiry(int accessCode, DiscoveryListener listener) 
+
+-
+
+-
+
+After you have instantiated your DiscoveryAgent, you use this method to make your Bluetooth device search 
+
+for other devicesin the area.The length ofthe inquiryistotallydependentupon the implementation ofthe Java 
+Bluetooth specification. The accessCode can be one of the following DiscoveryAgent constants: 
+NOT_DISCOVERABLE,LIAC, or GIAC. You must also pass a reference to a class that implements the 
+DiscoveryListener interface. When new devices are discovered, event callbacks are passed back to this 
+object. This method will return trueifthe device successfullywentinto discoverymode.The 
+startInquiry() method isthe onlywayto perform device discoverywithoutblocking the currentthread. 
+
+public RemoteDevice[] retrieveDevices(int option) 
+
+Use the retrieveDevices() method to get a list of RemoteDevice objects that were found by previous 
+inquiries. The option field has either the value of 0 for CACHEDor1 for PREKNOWN. For your convenience, 
+CACHED and PREKNOWN are also defined as constants in the DiscoveryAgent class. Unlike the 
+startInquiry() method,thismethodblocksthecalling thread until itreturns. CACHED and PREKNOWN 
+devices are determined by the BCC. 
+
+Note For the most part, a CACHED device is simply a Blue-tooth device that was found from a recent inquiry 
+Of course,the definitionof"recent"isimplementation dependent.A PREKNOWN device is a level abov 
+aCACHED deviceand isone thatyou frequentlycommunicate with. 
+
+For example,let'ssaythat you own a Bluetooth-enabled PDA.If you have exchanged businesscardswith 
+another PDAwithin an hour,an implementationmayclassifythatPDA as CACHED. However, if you own a printe 
+athome,and you printto itoften from the PDA,then animplementation mayclassifythe printer as PREKNOWN. 
+
+Please note that the retrieveDevices() method does not perform a true inquiry for Bluetooth devices, and 
+subsequently,devicesfound from thismethodmaynotbe in the area.However,thisreallyisn'ta problem, 
+becausethe purposeofthismethodisto quicklygive you the referencestothe devicesthatyou wantto connec 
+
+to. The startInquiry() method willguarantee thatthe device isin the area,butitmaytake a considerable 
+
+
+amount of time in order to find the device that you want. 
+
+javax.bluetooth.DiscoveryListener 
+
+If you've worked with event handling in Java, then the concept of listeners is not new to you. Like all listeners, 
+DiscoveryListener isan interface thathasa method thatiscalled bythe JVMwhen thedesired event 
+occurs. If you want to be informed when a Bluetooth device is found by DiscoveryAgent.startInquiry() 
+
+-
+
+then your class needs to implement the DiscoveryListener interface. Whenever a Bluetooth device is foun 
+the method deviceDiscovered() is called. 
+
+public void deviceDiscovered(RemoteDevice btDevice, DeviceClass cod) 
+
+As stated in the preceding section, this method is called by the JVM when a remote Bluetooth device is found 
+from an inquiry. The RemoteDevice object is a reference to the Bluetooth device found from the inquiry. The 
+
+-
+
+DeviceClass object (which tells you if the remote device is a phone, a PC, a PDA, etc.) is also provided when 
+
+-
+
+this method is called. See Table 4-2 for common device classes and their numbers. 
+
+-
+
+Note ThedeviceDiscovered() method may be called more than once for the same Bluetooth device in 
+
+-
+
+the vicinity. 
+
+-
+
+-
+
+Now that you know all the semantics about discovering devices, let's discuss how to find what services (if any) 
+
+-
+
+that these devices offer. 
+
+-
+
+-
+
+Service Discovery 
+
+-
+
+-
+
+After you have located devices in the area, it would be really nice to see what services those devices offer. Of 
+
+-
+
+course, you can always inspect the DeviceClass object,butthatmayonlyrevealhalf the picture.Let'ssayth 
+
+-
+
+you want to print a text file. Obviously, if the DeviceClass indicates that the major device class of the 
+
+-
+
+RemoteDevice is a printer, then you're all set. But what if the major device class is a computer? Would it com 
+
+-
+
+to mind that you can also print to a computer that is acting as a print server? 
+
+-
+
+CROSS-This is actually a good segue for Chapter 6. In Chapter 6, you'll learn how to convert you 
+REFERENCE desktop computer into a wireless print server. 
+
+The service discovery-related classesin the Java Bluetooth specification implementthe Service Discovery 
+Application Profile.The Service DiscoveryApplication Profile,in turn,usestheService DiscoveryProtocol(SDP 
+layer in your Bluetooth stack to find services on remote Bluetooth devices. 
+
+CROSS-SeeChapter 2 for detailed descriptions of profiles and layers in Bluetooth. 
+
+REFERENCE 
+
+The following classes are provided in the Java Bluetooth specification for service discovery: DiscoveryAgent 
+DiscoveryListener,ServiceRecord,DataElement, and UUID. You'll also interact (indirectly) with the 
+SDDB whenever you want to discover services on a remote Bluetooth device. 
+
+The Service Discovery Database 
+
+The Service Discovery Database (SDDB) is the central repository for all service records, but it's not a database 
+the sense of Oracle 9i, Sybase, or even MS Access. It's simply a collection of service records (and no, we don't 
+mean a Java Collectionsobject).The JSR-82implementation isfree to implementtheSDDBin anyform,so 
+when a ServiceRecord object is stored in the SDDB, it doesn't necessarily mean that the JVM serialized the 
+ServiceRecord objectand stored itin a data store.Ifa particular JSR-82implementation doesnotstore 
+servicerecordsin the SDDBasJava objects,then itmustconvertthem into ServiceRecord objects when a 
+clientperformsasearch for servicesand a match isfound. 
+
+Figures 4-1 through 4-4 present graphical depictions of the SDDB, ServiceRecord,DataElement, and UUID 
+objects in regard to how they all work together for service discovery. 
+
+
+-
+-
+-
+-
+-
+Figure 4-1: Service records in the SDDB 
+
+-
+-
+
+
+As you can see in Figure 4-1, a service record is an individual entry in the SDDB (Service Discovery Database). 
+
+-
+-
+
+
+Entriesin service recordsare called attributes. Attributes consist of an ID and value. See Figure 4-2 for an 
+illustration. 
+
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Figure 4-2: An individual attribute of a service record 
+
+Attribute IDs are 16-bit unsigned integers (0x000-0xFFFF). In a ServiceRecord object, attribute values are 
+stored as DataElement objects as shown in Figure 4-3. 
+
+
+Figure 4-3: An illustration of a service record attribute 
+
+DataElements can be created from the following Java types: int,boolean,UUID, and Enumeration (see 
+Figure 4-4). 
+
+
+Figure 4-4: DataElements 
+Figure 4-5 wraps it all up by showing the process of service discovery for a PDA that wants to use the services o 
+
+
+a Bluetooth keyboard.Asuccessful service discoverywill occur onlyifthere isa match in the UUID of a service 
+record in the SDDB of the RemoteDevice. 
+
+-
+Figure 4-5: The service discovery process for a PDA that wants to use the services of a Bluetooth keyboard 
+
+-
+-
+
+
+Now, let's look at the service discovery-related classes in detail. 
+
+-
+
+javax.bluetooth.UUID 
+
+-
+-
+
+
+TheUUID classissimplya classthatuniquelyidentifiesservicesin the Bluetooth protocol (UUID standsfor 
+
+-
+
+Universal Unique Identifier).Let'ssaythat you have aBluetooth clientdevice thatsupportsL2CAPconnections. 
+
+-
+
+you want to send a message to a Bluetooth server device, just perform service discovery with the UUID of 
+
+-
+
+0x0100,which isthe UUID for L2CAP.Ifyou have a Bluetooth-enabled PDA,andyou wantto send your 
+
+-
+
+businesscard (.vcf) to other Bluetooth-enabled devices,then you'll perform service discoverywith a UUID of 
+
+-
+
+0x1105,which isthe UUID for the OBEXObjectPushProfile. Table 4-3 listsa sample ofUUIDsfor Bluetooth 
+
+-
+
+protocol layers and Table 4-4 lists UUIDs for Bluetooth services and their corresponding Bluetooth profile. For 
+
+-
+
+instance, Headset and HeadsetAudioGateway are both distinct services that are a part of the Headset Profile. 
+
+Therefore, each service has its own UUID, 0x1108 and 0x1112, respectively. Some profiles, like the FAX 
+
+-
+
+Profile, only have one service: FAX (which has a UUID of 0x1111). A more exhaustive list of UUID values for 
+
+-
+
+protocolsand profile servicescanbe seen in the Bluetooth Assigned Numbersdocument. 
+
+-
+
+-
+
+Table 4-3: Common UUID Values for Bluetooth Protocol Layers 
+
+PROTOCOL UUID (DECIMAL) UUID (HEXADECIMAL) 
+SDP 1 0x0001 
+RFCOMM 3 0x0003 
+L2CAP 256 0x0100 
+HTTP 12 0x000C 
+FTP 10 0x000A 
+TCP 4 0x0004 
+IP 9 0x0009 
+UDP 2 0x0002 
+BNEP 15 0x000F 
+OBEX 8 0x0008 
+TCS-BIN 5 0x0005 
+Table 4-4: Common UUID Values for Bluetooth Profiles 
+
+
+PROFILE 
+
+Serial Port 
+Dial-up Networking 
+-Dial-up Networking 
+Object Push 
+Object Push 
+-
+-
+Cordless Telephony 
+Audio/Video Control 
+Profile 
+-
+-
+-
+-
+Intercom 
+Fax 
+Generic Access 
+-
+-
+-
+-
+-
+Generic Access 
+Handsfree 
+Handsfree 
+-
+-
+Basic Printing 
+Basic Printing 
+-
+
+-
+-
+Hard Copy Cable 
+Replacement 
+Hard Copy Cable 
+Replacement 
+Hard Copy Cable 
+Replacement 
+Human Interface 
+Device 
+Generic Networking 
+SERVICE NAME 
+SerialPort 
+LANAccessUsingPPP 
+DialupNetworking 
+OBEXObjectPush 
+OBEXFileTransfer 
+CordlessTelephony 
+A/V_RemoteControl 
+Intercom 
+Fax 
+Headset 
+HeadsetAudioGateway 
+Handsfree 
+HandsfreeAudioGateway 
+BasicPrinting 
+PrintingStatus 
+HardCopyCableReplacement 
+HCR_Print 
+HCR_Scan 
+HumanInterfaceDeviceService 
+
+
+n/a 
+UUID 
+(DECIMAL) 
+
+
+4353 
+4354 
+4355 
+4357 
+4358 
+4361 
+4366 
+4368 
+4369 
+4360 
+4370 
+4382 
+4383 
+4386 
+4387 
+4389 
+4390 
+4391 
+4609 
+
+4388 
+UUID 
+(HEXADECIMAL) 
+
+
+0x1101 
+0x1102 
+0x1103 
+0x1105 
+0x1106 
+0x1109 
+0x110E 
+0x1110 
+0x1111 
+0x1108 
+0x1112 
+0x111E 
+0x111F 
+0x1122 
+0x1123 
+0x1125 
+0x1126 
+0x1127 
+0x1201 
+
+0x1124 
+Now, let's take a look at the constructors for UUID. 
+
+public UUID(long uuidValue) 
+
+This is pretty cut and dry〞it constructs a UUID object from a long. 
+
+public UUID(String uuidValue, boolean shortUUID) 
+
+Thismethod allowsyou to constructa UUID from a String representation of a UUID. If shortUUID is set to 
+true, then a short UUID is returned (one that is made up of 16 bits instead of 128 bits). 
+
+Note When using this method, be sure not to include the "0x" prefix in front of the String when constructin 
+this object. 
+
+javax.bluetooth.DiscoveryAgent 
+
+Hey,waita minute,didn'twe use thisclassfor device discovery? Well,that'swhythe authorsofthe Java 
+
+
+Bluetooth specificationnamed thisclass DiscoveryAgent, because they intended this class to be used for bo 
+device and service discovery. In order to find services on remote devices, you'll use either selectService() 
+searchServices(). 
+
+public int searchServices(int[] attrSet, UUID[] uuidSet, RemoteDevice btDev, DiscoveryListener 
+discListener) 
+
+-
+
+Thismethod allowsyou to searchfor alistofserviceson asingle remote Bluetoothdevice.The attrSet[]
+
+parameter mustbe populated with an arrayofintegersthatcorrespond toattributesthatyou wanttosee when 
+the services match the UUIDs. The UUID[] parameter is the list of UUIDs of services that you want to look for. 
+RemoteDevice isthe reference to the remote device thatyouwantto search for services.You mustalso 
+provide an object that will implement the DiscoveryListener interface in order to receive event callbacks 
+when services that match your UUID criteria are discovered. This method returns an int that is the transaction 
+ID.Youcan later usethe transaction ID tocancel thissearch ifyouneedto. 
+
+-
+
+-
+
+public String selectService(UUID uuid, int security, boolean master) 
+
+-
+
+This method also allows you to search for services, but it has a slight twist that makes it different from 
+searchServices(). This method accepts neither a DiscoveryListener nor a RemoteDevice object. By 
+
+-
+
+-
+
+using this method, you can perform a search for a particular UUID that is available on ANY device in the area. I 
+
+-
+
+there is a match, then this method returns a String that will be used in the Connector.open() method in 
+
+-
+
+order to establish a connection to that device. Be sure to notice that this method only allows you to search on a 
+
+-
+
+singleUUID and not multiple UUIDs, as in searchServices(). 
+
+-
+
+-
+
+Unfortunately,there isno method available in the JSR-82 specification thatwillallowyouto discover every 
+
+-
+
+serviceoffered byremote devices.Byusing either searchServices() or selectService(), you need to 
+
+-
+
+knowtheUUID oftheservicethatyou'relookingforbeforeyouattempttoperformasearch. 
+
+-
+
+Note You may be able to discover every service on a remote device if that device has all of its services 
+
+-
+
+categorized with a BrowseGroupList attribute in the service record. If not, then you're out of luck. 
+
+-
+
+See the Bluetooth specification for more details on how to browse for services. 
+
+-
+
+javax.bluetooth.DiscoveryListener 
+
+Our good ol' buddy DiscoveryListener, which helped us to discover devices, comes back to help us discov 
+services on remote Bluetooth devices. 
+
+public void servicesDiscovered(int transID, ServiceRecord[] servRecord) 
+
+If you use the DiscoveryAgent.searchServices() method (which accepts a DiscoveryListener), the 
+
+thismethod iscalled bythe JVMwhen servicesare discovered on the remote device.The transactionID and an 
+array of ServiceRecord objects are provided to this method. With a ServiceRecord in hand, you can do 
+plentyofthings,butyou would mostlikelywantto connectto the RemoteDevice where this ServiceRecord 
+originated: 
+
+String connectionURL = servRecord[i].getConnectionURL(0, false); 
+
+javax.bluetooth.ServiceRecord 
+
+ServiceRecord objects are representations of individual entries in the SDDB. As you may remember, the 
+SDDB is the central repository of service records for a Bluetooth device. 
+
+javax.bluetooth.DataElement 
+
+Aswe continue to breakdown the anatomyofservice discovery,let'snowexamine the DataElement object. 
+EachServiceRecord object in the SDDB is made up of attributes. All attributes are stored as DataElement 
+objects. A DataElement object can be from any of the following: 
+
+
+Integers 
+
+Booleans 
+
+Strings 
+
+UUIDs 
+
+-
+
+Sequences of the preceding values 
+
+Be sure to take another look at Figures 4-1 through 4-4 if you're still in the dark about the relationship between 
+the SDDB, ServiceRecord,DataElement, and UUID objects. 
+
+Service Registration 
+
+-
+
+-
+
+Before aBluetooth clientdevice can useservice discoveryon a Bluetooth server device,the server needsto 
+register its services internally. That process is called -service registration. This section discusses what's involved 
+-'ll also give you a rundown of the classes needed to 
+
+service registration for a Bluetooth device, and we
+
+accomplish this. 
+
+-
+
+-
+
+Note In a peer-to-peer application,like afile transfer or chatapplication,be sure to remember thatany 
+
+-
+
+device can act as the client or the server, so you'll need to incorporate that functionality into your code 
+
+-
+
+in order to handle both scenarios of service discovery and service registration. 
+
+-
+
+-
+
+Here's a scenario of what's involved in getting your service registered and stored in the SDDB: 
+
+-
+
+1. 
+CallConnector.open() and cast the resulting connection to a StreamConnectionNotifier objec 
+-
+
+Connector.open() creates a new ServiceRecord and setssomeattributes. 
+
+-
+
+2. 
+Use the LocalDevice object and the StreamConnectionNotifier to obtain the ServiceRecord 
+-
+
+thatwascreated bythe system. 
+
+-
+
+-
+
+3. 
+Addormodifytheattributesinthe ServiceRecord (optional). 
+4. 
+Use the StreamConnectionNotifier to call acceptAndOpen() and wait for Bluetooth clients to 
+discover this service and connect. 
+5. 
+ThesystemcreatesaservicerecordintheSDDB.Waituntilaclientconnects.Whentheserverisready 
+exit, call close() on the StreamConnectionNotifier. 
+6. 
+ThesystemremovestheservicerecordfromtheSDDB. 
+StreamConnectionNotifier and Connector both come from the javax.microedition.io package o 
+the J2ME platform. Listing 4-4 is a snippet of code that achieves the service registration process. 
+
+Listing 4-4: The Service Registration Process 
+
+... 
+// let's name our variables
+StreamConnectionNotifier notifier = null; 
+StreamConnection sconn = null; 
+LocalDevice localdevice = null; 
+ServiceRecord servicerecord = null; 
+
+
+// step #1
+// the String url will already be defined with the correct url parameters
+notifier = (StreamConnectionNotifier)Connector.open(url); 
+
+
+// step #2
+// we will get the LocalDevice if not already done 
+
+
+
+localdevice = LocalDevice.getLocalDevice();
+servicerecord = localdevice.getRecord(notifier);
+// step #3 is optional 
+servicerecord = localdevice.getRecord(notifier);
+// step #3 is optional 
+
+// step #4// this step will block the current thread until a client respondsnotifier.acceptAndOpen();
+
+-
+
+// the service record is now in the SDDB 
+
+// step #5// just wait...
+// assume the client has connected and you are ready to exit 
+
+-
+
+//step #6
+
+-
+
+// this causes the service record to be removed from the SDDB
+
+notifier.close(); 
+
+-
+
+-
+
+-
+
+-
+
+And that's all that you need to do service registration in Bluetooth. The next step is communication. 
+
+-
+
+-
+
+Communication 
+
+-
+
+-
+
+Okay,Bluetooth isa communication protocol,sohow do you communicatewith it? Well,the official Java 
+
+-
+
+Bluetooth APIgivesyou threewaystosendand receivedata,butforrightnowwe'll cover onlytwo ofthem: 
+
+-
+
+RFCOMM and L2CAP. 
+
+-
+
+-
+
+RFCOMM Connections 
+
+-
+
+-
+
+Asyou mayremember from Figure 2-9,the mostcommonBluetooth profilesusethe SerialPortProfile asa 
+foundational layer. 
+
+Note RFCOMM is the protocol layer that the Serial Port Profile uses in order to communicate, but these two 
+items are almost always used synonymously. 
+
+Sessions and Connections 
+
+Before we continue, there's a little more terminology to introduce here: sessions and connections. You can only 
+have a single session between twoBluetooth devices.Thislimitation isn'ta big deal,per se,because the 
+definition ofa session issimplyone or more connectionsshared between two devices.You can also relate a 
+Bluetooth session in the same way that sessions are created and used on the Web. When a Web server is 
+communicating to a Web client,thereisonlyone session,although there are numerousconnections. Now,a 
+Bluetooth device can have multiplesessionsonlyif each session islinked to a differentdevice.Thisalso applies 
+on the Web;powerfulapplication servershave the capabilityto createmultiple sessionsand keep them in 
+memory, but each session is linked to a different client. 
+
+Server Connections with the Serial Port Profile 
+
+Listing 4-5 demonstrates what is needed to open connections on a Bluetooth device that will act as a server. 
+
+Listing 4-5: Opening Connections on a Bluetooth Server 
+
+... 
+// let's name our variables 
+
+
+StreamConnectionNotifier notifier = null; 
+StreamConnection con = null; 
+
+
+
+LocalDevice localdevice = null; 
+ServiceRecord servicerecord = null; 
+InputStream input;
+OutputStream output; 
+
+
+// let's create a URL that contains a UUID that
+// has a very low chance of conflicting with anything
+
+
+-
+
+String url = "btspp://localhost:00112233445566778899AABBCCDDEEFF;name=serialconn" 
+// let's open the connection with the URL and cast it into
+a StreamConnectionNotifier 
+notifier = (StreamConnectionNotifier)Connector.open(url); 
+
+
+// block the current thread until a client responds
+
+
+-
+
+con = notifier.acceptAndOpen();
+
+-
+
+// the client has responded, so open some streams
+
+input = con.openInputStream();
+
+-
+
+output = con.openOutputStream(); 
+
+-
+
+-
+
+// now that the streams are open, send and receive some data 
+
+-
+
+-
+
+-
+
+-
+
+For the mostpart,thisisjustabout the samecode used in service registration,and in fact,itis;service 
+
+-
+
+registration andserver communication are both accomplished using the same linesofcode.Here are a few 
+
+-
+
+items that need to be pointed out. The String url begins with btspp://localhost:, which is required if 
+
+-
+
+you're going to use the Bluetooth SerialPortProfile.Nextcomesthe UUID part ofthe URL,whichis 
+
+-
+
+00112233445566778899AABBCCDDEEFF. This is simply a custom UUID that was made up for this service; a 
+
+-
+
+string that's128 bitslong could havebeen used.Finally,we have name=serialconn in the URL String. We 
+
+-
+
+could have left this part off, but we want our custom service to have a name, so the actual service record in the 
+
+-
+
+SDDB has the following entry: 
+
+ServiceName = serialconn 
+
+The implementation hasalsoassigned a channelidentifier to thisservice. The clientmustprovide thechannel 
+number along with other parameters in order to connect to a server. 
+
+Client Connections with the Serial Port Profile 
+
+Establishing a connection with the Serial Port Profile for a J2ME client is simple because the paradigm hasn't 
+changed. You simplycall Connector.open(). 
+
+StreamConnection con = (StreamConnection)Connector.open(url); 
+
+You obtain the url String that is needed to connect to the device from the ServiceRecord object that you 
+get from service discovery. Here's a bit more code that will show you how a Serial Port Profile client makes a 
+connection to a Serial Port Profile server: 
+
+String connectionURL = serviceRecord.getConnectionURL(0, false);
+StreamConnection con = (StreamConnection)Connector.open(connectionURL); 
+
+What does a Serial Port Profile client connection URL look like? If the address of the server is 0001234567AB 
+then the String that the SPP client would use would look something like this: 
+
+
+btspp://0001234567AB:3 
+
+The 3 at the end of the URL String is the channel number that the server assigned to this service when this 
+service was added to the SDDB. 
+
+-
+
+L2CAP Connections 
+
+Unlike RFCOMM connections, which are stream oriented, L2CAP connections are packet oriented. Before we 
+cover how tocreate L2CAPconnections,we'll brieflycover a newconceptcalled Maximum Transmission Unit 
+(MTU). We'll also cover the classes needed in order to create L2CAP connections: L2CAPConnection and 
+L2CAPConnectionNotifier. 
+
+-
+
+Maximum Transmission Unit 
+
+-
+
+-Because of the fact that the L2CAP layer sends data in packets, the official Java Bluetooth API gives you the 
+
+flexibility to control how large the packets can be. The default MTU is 672 bytes, but you can attempt to negotia 
+
+-
+
+a larger MTU in your connection URL strings.Here'swhywe say"attempt":If theclientindicatesthatitcan 
+receivedata in packetsizesof10MB,and the server isonlycapableofsendingdata at1kB,then there'sno rea 
+
+-
+
+-
+
+problem;theclient'll getitsdata in 1kBpackets.Nowon theother hand, ifthe server indicatesthatit'ssending 
+
+-
+
+data in 10MB-size packets, and the client is only capable of handling 1kB packets, then the transmission will fai
+
+-
+
+horribly. 
+
+-
+
+-
+
+In order to find out the largest packet size that you can receive from a L2CAP connection, just run the following 
+
+-
+
+piece of code: 
+
+-
+
+-
+
+LocalDevice local = LocalDevice.getLocalDevice();
+
+-
+
+String receiveMTUmax = local.getProperty("bluetooth.l2cap.receiveMTU.max"); 
+
+-
+
+-
+
+L2CAP Server Connections 
+
+Following isthecode thata L2CAPserver usesto open a connection to aclient: 
+
+L2CAPConnectionNotifier notifier = (L2CAPConnectionNotifier).Connector.open(url); 
+L2CAPConnection con = (L2CAPConnection)notifier.acceptAndOpen(); 
+
+As you can see, it is not much different from the standard StreamConnectionNotifier and Connection 
+used for RFCOMM server connections. 
+
+L2CAP Client Connections 
+
+Nowhere'sthe code thata clientwould use inorder toestablishan L2CAPconnection with a server: 
+
+L2CAPConnection = (L2CAPConnection)Connector.open(url); 
+
+Once again, it's pretty straightforward. 
+
+More on MTUs 
+
+Now,let'slookatMTUsonemore time,in conjunctionwith opening connections.For instance,ifthe server cod 
+looked like this: 
+
+String url =
+"btl2cap://localhost:00112233445566778899AABBCCDDEEFF;ReceiveMTU=1024;TransmitMTU 
+
+
+=1024"; 
+
+The connection String for theclient,onthe other hand,wouldlook something like this: 
+
+String url = "btl2cap://2E345BB78902:1055;ReceiveMTU=4096;TransmitMTU=512"; 
+
+-
+
+Asyou can see,the server isproposing tosenddata in packetsizesof1024 bytes.Since the clientisableto 
+receivedata packetsfour timesthatsize,the negotiated connection will have a packetdata sizeofthe lowest 
+common denominator: 1024. On the other hand, the client wants to send its data in packets of 512 bytes. The 
+server isable to handle thatpacketsize with no problem atall,and thenegotiated connection will be 512 byte 
+packets. 
+
+-
+
+Now,let'stake a brieflookatthe two classesused in order to createL2CAP connectionsand some of their 
+
+-
+
+methods. 
+
+-
+
+-
+
+javax.bluetooth.L2CAPConnection 
+
+-
+
+This interface is just a subclass of the Connection interface,and you use itin thesame manner.The followin 
+
+-
+
+methods are found in L2CAPConnection that are not found in Connection:
+
+-
+
+-
+
+public int getReceiveMTU(): This method gets the negotiated ReceiveMTU value from the 
+
+-
+
+connection. 
+
+-
+
+-
+
+public int getTransmitMTU(): This method gets the negotiated TransmitMTU value from the 
+
+-
+
+connection. 
+
+-
+
+public boolean ready(): This method will return true if there is any data ready to be read. If this 
+
+-
+
+method returnstrue,then a callto receive() will not block the main thread. 
+
+-
+
+-
+
+public int receive(byte[] inBuf): Regardless of the ReceiveMTU between your device and the 
+remote device, you can set the size of inBuf to be whatever you want it to be. If the size of inBuf is great 
+than or equal to the ReceiveMTU,then youwon'tlose anydata during a transmission.Ifthe sizeof inBuf 
+is smaller than the size of ReceiveMTU, then inBuf[] will be filled with data for the incoming packet, but 
+the remainder of the data will be lost. 
+
+public void send(byte[] data):Use thismethod to send data to a remote Bluetoothdevice via the 
+L2CAP protocol. You're free to send any size packet that you want, but if you exceed the TransmitMTU 
+size,then the excessdata willbe discarded. 
+
+L2CAP vs. RFCOMM 
+
+So now that you know how to send data between Bluetooth clients and servers using both L2CAP and RFCOM 
+we bet you're wondering about typical usage scenarios for these connections. In other words, why would anyon 
+use RFCOMM instead of L2CAP to send data or vice versa? Well, RFCOMM is also known as the virtual serial 
+portcommunication protocol.An idealwayto use RFCOMMisin situationswhenyou would replace a serial 
+cable. For instance, if you were a developer for a GPS manufacturer, and your duty was to make one of their 
+unitsBluetooth enabled,thenRFCOMM would be a likelychoice inthisscenario.Why? The GPSunitwill alway 
+have a constantstream of information thatneedstobe processed,rendered,calculated,etc.So, collectthe da 
+from your stream and plot those coordinates on the screen. 
+
+On the other hand,L2CAPisgreatfor handling packetdata.L2CAPcan easilybe used (and actuallyis) asa 
+data multiplexer.Youcan readdata from the connection,and based upon a header in the packet,you can route 
+thatdatato differentmethods,threads,andclassesin your application. 
+
+
+Summary 
+
+Thischapter gave you a formal introduction tothe official Java BluetoothAPIs.You shouldbe aware of all 
+the basic components of a Bluetooth application, as well as how to implement them using the classes and 
+interfacesofthe official Java Bluetooth API.Thischapter also discussed the importance and the rolesthat 
+the Bluetooth Control Center (BCC) plays in your wireless applications. 
+
+-
+
+Essentially, this chapter showed you how a Bluetooth application works by its components. In the next 
+chapter, we'll look at a full working example of a Java Bluetooth application using the Atinav Java 
+Bluetooth SDK. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+Chapter 5: Bluetooth with J2ME MIDP 
+
+Nowthatwe've covereda lotof thefoundational material,let'sstartcreating some Java Bluetooth 
+applications. This chapter will give you your first full example of a Java Bluetooth application, but before 
+we dive rightin,we're going to give a briefprimer on J2MEand the Mobile Information DeviceProfile 
+(MIDP).Afterwards,we're going to examine two sampleapplications:Stealth Mode and the Piconet 
+
+-
+
+Browser. 
+
+Note If you've already developed a MIDlet, or if you have a working knowledge of J2ME, then feel free 
+toskip down to the examplecode in the sections"StealthMode Example"and "PiconetBrowser 
+Example." 
+
+-
+
+J2ME Overview 
+
+-
+
+Under the general term of J2ME, there are two configurations that correspond to two classes of devices. 
+
+-
+
+The connected device configuration (CDC) is a classification for devices that have a network connection, 
+buthavelessprocessing powerthan a typical desktopcomputer.Set-top boxes,appliances,smart 
+
+-
+
+-
+
+phones, and high-end PDAs fit into this category. The connected limited device configuration (CLDC) 
+
+-
+
+classifiesmanymobile devices;theyarecapable ofmaking a networkconnection,butitisn'trobustor 
+
+-
+
+dedicated.CLDC devicestypicallydon'thave a lotofprocessing power,and manymobile phones, two
+
+
+-
+
+way pagers, and some PDAs fit into this category. 
+
+-
+
+-
+
+A J2ME Profile is a software layer that is built on top of a configuration (not to be confused with a Bluetooth 
+
+-
+
+profile).Configurationstypicallyencompassa broad classificationofdevices,and profileshelpto narrow 
+
+-
+
+the scope, while providing more functionality to the configuration. Figure 5-1 shows the J2ME world, and 
+
+-
+
+the relationship between configurations and profiles. 
+
+-
+
+-
+-
+Figure 5-1: J2ME Profiles and configurations 
+
+
+The Mobile Information Device Profile 
+
+Now, let's take a look at what is (by far) the most widely used J2ME Profile: Mobile Information Device 
+Profile (MIDP). If you have a Java-enabled mobile phone, then it's most likely a MIDP device. As stated 
+earlier, the J2ME Profiles extend the functionality of a configuration. The CLDC provides the following 
+packages for the developer in order to create Java applications for small devices: 
+
+-
+
+java.lang (basic core language classes) 
+java.io (networking classes) 
+java.util (utility classes) 
+javax.microedition.io (more networking classes) 
+
+
+-
+-
+
+
+Note These are not the full J2SE versions of java.lang,java.io, and java.util APIs. The 
+
+-
+
+CLDC contains a subset of these packages that's optimized for micro devices. 
+
+-
+-
+
+
+The MIDP adds these additional packages for mobile devices: 
+
+-
+
+javax.microedition.lcdui (user interface classes) 
+
+-
+-
+
+
+javax.microedition.midlet (core MIDlet classes) 
+
+-
+-
+
+
+javax.microedition.rms (data persistence classes) 
+
+-
+
+According to the MIDP specification, these are the qualifications for a MIDP 1.0 device: 
+
+-
+-
+
+
+A minimum screen resolution of 96 54 pixels. 
+
+-
+-
+
+
+A minimum of 128kB nonvolatile memory for the MIDP implementation. 
+
+-
+
+Aminimum of 32kBvolatile memoryfor JVMheap space. 
+Aminimum of 8kBnonvolatile memoryfor applicationsto store persistentdata. 
+Some type of input mechanism. 
+Support for network connectivity. 
+The OS must provide minimal scheduling, exception handling, and interrupt processing. 
+The OS must support writing of bitmapped graphics to display. 
+The OS must be able to accept the input and pass it on to the JVM. 
+
+
+The MIDP 2.0 specification raises the bar by requiring at least 256kB of non-volatile memory, and 128kB 
+of memory for the Java heap space. However, the MIDP 2.0 specification also brings along more 
+functionalityfor wirelessapplications,including the following: 
+
+Securenetworking with HTTPS 
+Push applications with the javax.microedition.io.PushRegistry class 
+
+
+Standardized serial port communications 
+Wirelessapplication deploymentwith Over-the-Air provisioning(OTA) 
+Better gamingapplicationswith the javax.microedition.lcdui.game package 
+
+
+Developing MIDlets 
+
+
+What is a MIDlet? A MIDlet is a Java application that runs on a mobile device and uses the Mobile 
+InformationDevice Profile.MIDletscanbe created byextending the 
+javax.microedition.midlet.MIDlet class. A MIDlet has three states in its life cycle: active, 
+paused, and destroyed. Those three states correspond to three methods:startApp(),pauseApp(), 
+anddestroyApp().One or more MIDletspackaged together in a JAR file constitute a MIDlet suite. 
+Software on the mobile device (calledthe application manager)isresponsible for loading,running,and 
+destroying the MIDlet. 
+
+-
+
+The skeletal structure of a typical MIDlet looks like this: 
+
+import javax.microedition.midlet.MIDlet;
+public class MyApplcation extends MIDlet{ 
+
+-
+
+public MyApplication()
+-{
+-}
+-public void startApp()
+-{
+-}
+public void pauseApp()
+
+
+-
+
+{
+
+-
+
+}
+
+-
+
+public void destroyApp(boolean unconditional)
+
+-
+
+{
+
+-
+
+}
+
+-
+
+} 
+
+-
+
+-
+
+-
+
+-
+
+Note Sun has created a very handy tool for MIDlet development called the J2ME Wireless Toolkit. 
+The tool comes bundled with an emulator and can package, compile, preverify, and run CLDC 
+and MIDPapplications.The examplesin thischapter use thistool,and itisavailable free from 
+the Wireless Java Web site (http://wireless.java.sun.com/). 
+
+Using the MIDP User Interface Components 
+
+The MIDPUIislogicallycomposedoftwo APIs:high-level and low-level.The high-level API is primarily 
+designed for business applications, and it gives you objects like List,TextBox,ChoiceGroup, and 
+DateField. This API includes a high level of abstraction because you can't define the visual appearance 
+
+(i.e.,shape,color, font,etc.) ofthose components.When using the high-level UIcomponents,you won't 
+have direct control of the navigation or scrolling, or have direct access to the input device (you can process 
+input, but you won't have direct access to it). All of these items are handled by the MIDP implementation 
+and are device dependent.Thisabstractionallowsthesame MIDletto run on a Blackberrypager aswell 
+ason aPalm PDA. 
+
+Thelow-level API, on the other hand, is designed for applications that need precise placement and control 
+of graphicelements,aswellasaccessto low-level inputevents.The low-level APIiswell suited for 
+gaming or entertainment-based applications. 
+
+Using the RMS for Persistent Storage 
+
+So, how do you store persistent data on a micro device? If you think about it, a mobile phone probably 
+wouldn't have a file system in order to storeitsdata.It'sreallyoverkill for sucha small device thatkeeps 
+names and phones numbers to have a file system just for data storage. Being aware of this, the J2ME 
+architectshave developed aviable alternative to storingdata persistentlycalledthe RecordManagement 
+System (RMS). The javax.microedition.rms package contains all the functionality that will enable 
+
+
+your classes to read, write, and sort data in the RMS. 
+
+The RMSisa record-oriented database stored inthe nonvolatilememoryofthe mobile device.Since itis 
+record oriented, the RMS is also referred to as a flatfile system, where the data is stored in a series of 
+rowsina table,much like the data stored in a conventionaldatabase.Each row willhave a unique 
+identifier.Alogicalrepresentation of arecord store isillustrated in Figure 5-2. 
+
+-
+
+-
+-
+-
+Figure 5-2: A logical representation of an RMS record store 
+
+-
+
+-
+
+-
+
+The main class in the RMS is javax.microedition.rms.RecordStore. This class contains the 
+
+-
+
+methodsfor creating,updating,deleting,and querying a record store.Afew interfacesarealso provided is 
+
+-
+
+this package, and they help you whenever you need to enumerate, compare, and filter the data stored 
+
+-
+
+inside the record store. The RMS also includes a listener interface called 
+
+javax.microedition.rms.RecordListener. When you associate this listener with a record store, 
+
+-
+the interface reports events that correspond to inserts, updates, and deletes of data that are in the record 
+store. 
+
+
+-
+
+-
+
+-
+
+Performing I/O with the GCF 
+
+-
+
+In order for J2ME applications to perform any networking or I/O, they must use the java.io and 
+javax.microedition.io packages. These packages together form the Generic Connection 
+Framework (GFC). 
+
+-
+
+The general philosophybehind the GCFisto create a frameworkto abstractthe communication process 
+
+through a single class called Connector. You can then use Connector to create any connection like file 
+I/O streams, TCP/IP socket connections, HTTP connections, etc. In order to open a connection, just use 
+theopen method: 
+
+Connector.open("protocol:address:parameters"); 
+
+If auser wantstoopen an HTTPconnection,theconnection URL will look like this: 
+
+Connector.open("http://mydomain.com"); 
+
+Working withtheExample Code 
+
+Before you tryoutanyofthe examplesin thisbook, itisrecommended thatyoufirstgetyour JSR-82 
+implementationon your developmentenvironmentinstalled and configured.Ifyou don'thave your 
+developmentenvironmentsetup,then here'sa checklistof the thingsthatyou need todo: 
+
+Select a JSR-82 implementation that supports your OS. You can find an updated listing of JSR-82 
+implementationsatthe companionWeb site for thisbook: http://www.javabluetooth.com. 
+
+
+Select the Bluetooth hardware that is supported by your JSR-82 implementation. 
+
+Install and configure your development environment. 
+
+Tryoutthe demo programsthatare included with your JSR-82implementation. 
+
+Determine whatstackinitialization code (if any) isused inthe demo programs. 
+
+-
+
+The documentation for your JSR-82implementation reallyshould pointoutwhatyouneedto do in 
+order to initialize your stack. But just in case they don't, a dead ringer would be a class that you need 
+to import that's not part of the javax.bluetooth or javax.obex packages (see Appendices A and 
+B for an exhaustive list). In some cases, your stack initialization code will also be setting the baud rate 
+for your Bluetooth device. 
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+Stealth Mode Example 
+
+The Stealth Mode example is a simple program that illustrates the concepts of stack initialization, device 
+management,and device discovery.When the program starts,itlooksfor remote Bluetooth devicesas 
+shown in Figure 5-3. 
+
+-
+
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+Figure 5-3: The application starts, and is now looking for remote Bluetooth devices. 
+Once it finds another device, it goes into nondiscoverable mode, as shown in Figure 5-4. 
+
+

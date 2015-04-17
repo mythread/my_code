@@ -1,0 +1,42 @@
+<HTML>
+<Head>
+<Script Language ="JavaScript">
+
+function calc()
+{
+with(document.area)
+{
+//非数字处理
+if(isNaN(a.value)||isNaN(b.value)||a.value==""||b.value=="")
+{
+alert("请输入数字！");
+//清空文本框
+a.value="";
+b.value="";
+result.value="";
+//设置焦点
+a.focus();
+}//end if
+else{
+//---正常处理---
+//将字符串转换为整数
+var avalue=parseInt(a.value);
+var bvalue=parseInt(b.value);
+result.value=avalue+bvalue;
+}//end else
+}//end with
+}
+</Script>
+</Head>
+<body>
+
+<form name="area">
+<fieldset>
+<legend>两位整数求和</legend>
+<input type="text" name="a" size=2 maxlength=2>+<input type="text" name="b" size=2 maxlength=2>=<input type="text" name="result" size=3 maxlength=3 readonly><br/>
+<input type="button" name="button" value="计算" onClick="calc()">
+</fieldset>
+</form>
+
+</body>
+</HTML>

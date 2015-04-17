@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<breakfast_menu>
+	<food>
+		<name>草莓薏仁优格</name>
+		<price>￥3</price>
+	</food>
+	<food>
+		<name>杏仁西柚</name>
+		<price>￥3</price>
+	</food>
+	<food>
+		<name>苹果寿司</name>
+		<price>￥4</price>
+	</food>
+	<food>
+		<name>杏仁提子麦片粥</name>
+		<price>￥2</price>
+	</food>
+	<food>
+		<name>清粥小菜</name>
+		<price>￥1</price>
+	</food>
+	<food>
+		<name>烧饼</name>
+		<price>￥1</price>
+	</food>
+	<food>
+		<name>豆浆油条</name>
+		<price>￥1</price>
+	</food>
+</breakfast_menu>

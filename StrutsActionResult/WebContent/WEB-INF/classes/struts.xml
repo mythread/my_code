@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    
+	<package name="main" extends="struts-default">
+	
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		<!-- 下面试四种resultType测试 -->
+		<action name="dispatcher" class="com.ibm.etp.action.TestResultAction" >
+			<result>/display.jsp</result>
+		</action>
+		
+		<action name="redirect" class="com.ibm.etp.action.TestResultAction" >
+			<result type="redirect">/display.jsp</result>
+		</action>
+		
+		<action name="chain" class="com.ibm.etp.action.TestResultAction" >
+			<result type="chain">go</result>
+		</action>
+		
+		<action name="redirectAction" class="com.ibm.etp.action.TestResultAction" >
+			<result type="redirectAction">go</result>
+		</action>
+		
+		<action name="go" class="com.ibm.etp.action.GoAction" >
+			<result>/display.jsp</result>
+		</action>
+
+		<!-- 下面是全局result测试 -->
+		<action name="globalResult" class="com.ibm.etp.action.GlobalResultAction">
+		</action>
+		
+		<!-- 下面是动态result测试 -->
+		<action name="dynamicResult" class="com.ibm.etp.action.DynamicResultAction">
+			<result>${resultUrl}</result>
+		</action>
+	</package>
+</struts>

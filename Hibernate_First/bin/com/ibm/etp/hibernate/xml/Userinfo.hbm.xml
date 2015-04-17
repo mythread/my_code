@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-5-9 13:35:48 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojos.Userinfo" table="USERINFO" schema="TESTHIB">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="userid" type="string">
+            <column name="USERID" length="20" />
+        </property>
+        <property name="username" type="string">
+            <column name="USERNAME" length="20" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="AGE" precision="3" scale="0" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="BIRTHDAY" length="7" />
+        </property>
+        <property name="salary" type="java.lang.Double">
+            <column name="SALARY" precision="7" scale="1" />
+        </property>
+        <property name="ismarry" type="java.lang.String">
+            <column name="ISMARRY" length="1">
+                <comment>1:&#210;&#209;&#187;&#233; 2:&#206;&#180;&#187;&#233;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

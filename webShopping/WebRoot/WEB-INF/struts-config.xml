@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans >
+		<!-- 登录 -->
+	    <form-bean name="loginForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="username" type="java.lang.String" />
+	      <form-property name="password" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 注册 -->
+	    <form-bean name="registerForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="username" type="java.lang.String" />
+	      <form-property name="email" type="java.lang.String" />
+	      <form-property name="answer" type="java.lang.String" />
+	      <form-property name="question" type="java.lang.String" />
+	      <form-property name="repassword" type="java.lang.String" />
+	      <form-property name="password" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 用户管理 -->
+	    <form-bean name="userinfoForm" type="org.apache.struts.validator.DynaValidatorForm" >
+		  <form-property name="username" type="java.lang.String" />
+	      <form-property name="email" type="java.lang.String" />
+	      <form-property name="phone" type="java.lang.String" />
+	      <form-property name="address" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 密码管理 -->
+	    <form-bean name="passForm" type="org.apache.struts.action.DynaActionForm">
+	      <form-property name="question" type="java.lang.String" />
+	      <form-property name="answer" type="java.lang.String" />
+	      <form-property name="password" type="java.lang.String" />
+	      <form-property name="repassword" type="java.lang.String" />
+	    
+	    </form-bean>
+	    <!-- 商品 -->
+	    <form-bean name="productForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="maxRow" type="java.lang.String" />
+	      <form-property name="currentPage" type="java.lang.String" />
+	      <form-property name="cid" type="java.lang.String" />
+	      <form-property name="pid" type="java.lang.String" />
+	      <form-property name="name" type="java.lang.String" />
+	      <form-property name="unitprice" type="java.lang.String" />
+	      <form-property name="discount" type="java.lang.String" />
+	      <form-property name="picture" type="java.lang.String" />
+	      <form-property name="descr" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 商品分类 -->
+	    <form-bean name="categoryForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="cid" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 购物车 -->
+	    <form-bean name="buyForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="unitprice" type="java.lang.String" />
+	      <form-property name="name" type="java.lang.String" />
+	      <form-property name="pid" type="java.lang.String" />
+	      
+	    </form-bean>
+	     <!-- 订单 -->
+	    <form-bean name="saleSorderForm" type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="phone" type="java.lang.String" />
+	      <form-property name="count" type="java.lang.String[]" />
+	      <form-property name="address" type="java.lang.String" />
+	      
+	    </form-bean>
+	    <!-- 订单项 -->
+    	<form-bean name="orderItemForm" type="org.apache.struts.validator.DynaValidatorForm">
+    	   <form-property name="soid" type="java.lang.String" />
+    	   
+    	</form-bean>
+	    
+	</form-beans>
+
+	<global-exceptions >
+		
+		
+	</global-exceptions>
+	
+	<global-forwards >
+		<forward name="lastPage" path="/forward.jsp" />
+		
+	</global-forwards>
+	
+	<action-mappings >
+		<!-- 登录 -->
+	    <action
+	      attribute="loginForm"
+	      input="/login.jsp"
+	      name="loginForm"
+	      path="/login"
+	      scope="request">
+	      
+	    </action>
+	    <!-- 注册 -->
+	    <action
+	      attribute="registerForm"
+	      input="/register.jsp"
+	      name="registerForm"
+	      path="/register"
+	      scope="request">
+	        
+	   	</action>
+	   	<!-- 用户管理 -->
+	    <action
+	      attribute="userinfoForm"
+	      input="/userinfo/index.jsp"
+	      name="userinfoForm"
+	      path="/userinfo/info"
+	      scope="request"
+		  parameter="method">
+	      <forward name="success" path="/userinfo/index.jsp" />
+	      
+	    </action>
+	    <!-- 密码管理 -->
+	    <action
+	      attribute="passForm"
+	      input="/userinfo/password.jsp"
+	      name="passForm"
+	      parameter="method"
+	      path="/userinfo/pass"
+	      scope="request">
+	      <forward name="doPassword" path="/userinfo/password2.jsp" />
+	      <forward name="success" path="/userinfo/info.do?method=edit" />
+	      
+	    </action>
+	    <!-- 退出登录 -->
+    	<action 
+    	  path="/logout" 
+    	  type="org.webshopping.struts.action.LogoutAction">
+    	  <forward name="success" path="/index.jsp" redirect="true" /> 
+    	  
+    	</action>
+    	<!-- 商品 -->
+	    <action
+	      attribute="productForm"
+	      input="/error.jsp"
+	      name="productForm"
+	      parameter="method"
+	      path="/show/product"
+	      scope="request">
+	      <forward name="successShowOne" path="/show/product.jsp" />
+	      <forward name="successProducts" path="/show/index.jsp" />
+	      <forward name="successNew" path="/index.jsp" />
+	      
+	    </action>
+	    <!-- 商品分类 -->
+	    <action
+	      attribute="categoryForm"
+	      input="/error.jsp"
+	      name="categoryForm"
+	      parameter="method"
+	      path="/show/category"
+	      scope="request">
+	      <forward name="successRoot" path="/index.jsp" />
+	      <forward name="successChild" path="/show/index.jsp" />
+	      
+	    </action>
+    	<!-- 购物车 -->
+	    <action
+	      attribute="buyForm"
+	      input="/show/buy/trolley.jsp"
+	      name="buyForm"
+	      path="/show/buy/trolley"
+	      scope="request"
+	      parameter="method">
+	      <forward name="success" path="/show/buy/trolley.jsp" redirect="true"/>
+	      
+	    </action>
+	    <!-- 订单 -->
+	    <action
+	      attribute="saleSorderForm"
+	      input="/error.jsp"
+	      name="saleSorderForm"
+	      parameter="method"
+	      path="/show/buy/saleSorder"
+	      scope="request">
+	      <forward name="success" path="/show/buy/success.jsp" redirect="true"/>
+	      <forward name="successShow" path="/userinfo/salesorder.jsp"/>
+	    </action>
+	    <!-- 订单项 -->
+	    <action
+	      attribute="orderItemForm"
+	      input="/error.jsp"
+	      name="orderItemForm"
+	      path="/userinfo/orderItem"
+	      scope="request">
+	      <forward name="success" path="/userinfo/orderitem.jsp" />
+	      
+	    </action>
+
+	</action-mappings>
+
+	<controller
+		processorClass="org.springframework.web.struts.DelegatingRequestProcessor">
+	</controller>
+	
+	<message-resources
+		parameter="org.webshopping.struts.ApplicationResources" />
+		
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" 
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+	</plug-in>
+	
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/action-servlet.xml" />
+	</plug-in>
+</struts-config>

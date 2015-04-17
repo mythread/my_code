@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+.backgroud {
+	background-color: #6FF;
+}
+#enter {
+	height: 30px;
+	width: 50px;
+	font-size: 18px;
+}
+#setback {
+	height: 30px;
+	width: 50px;
+	font-size: 18px;
+}
+
+#h1 {
+	text-align: center;
+	vertical-align: middle;
+}
+table {
+	vertical-align: middle;
+	border-right-style: none;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	border-collapse:collapse;
+	background-color: #CCCCCC;
+}
+.yellow {
+	background-color: #FC3;
+}
+.jacinth {
+	background-color: #F90;
+}
+table {
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
+	border-left-color: #FFF;
+}
+
+
+.red {
+	color: #F00;
+	text-align: left;
+}
+.tablefont {
+	font-weight: bolder;
+}
+
+.italic {
+	font-style: italic;
+	color: #F00;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.purple {
+	color: purple;
+	text-align: right;
+}
+.tablestyle {
+	text-align: center;
+	height: 50px;
+	width: 50%;
+	left: 30px;
+	right: 30px;
+	vertical-align: middle;
+	font-size: 18px;
+}
+form {
+	text-align: center;
+	vertical-align: middle;
+}
+span {
+	color: #F00;
+	font-size: 12px;
+ }
+
+.tableside {
+	text-align: right;
+	color: #F00;
+	color: #000;
+}
+.tabletail {
+	text-align: center;
+	vertical-align: middle;
+}
+#register {
+	height: 30px;
+	width: 90px;
+	font-size: 18px;
+}
+.left {
+	text-align: left;
+	vertical-align: middle;
+	height: 15px;
+	width: 160px;
+}
+#usetpwd {
+	height: 15px;
+	width: 160px;
+}
+#upwd {
+	height: 15px;
+	width: 160px;
+}
+
+#back {
+	height: 30px;
+	width: 50px;
+	font-size: 18px;
+	text-align: center;
+}
+#ok {
+	height: 30px;
+	width: 40px;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+.toleft {
+	text-align: left;
+	vertical-align: middle;
+}

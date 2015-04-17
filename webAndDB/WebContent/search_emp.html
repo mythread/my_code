@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>查询员工信息</title>
+<style type="text/css">
+<!--
+@import url("WEB-INF/set_mode.css");
+-->
+@CHARSET "UTF-8";
+table {
+	vertical-align: middle;
+	border-right-style: none;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	border-collapse:collapse;
+	background-color: #CCCCCC;
+}
+.tablestyle {
+	text-align: center;
+	height: 50px;
+	width: 50%;
+	left: 30px;
+	right: 30px;
+	vertical-align: middle;
+	font-size: 18px;
+}
+.tableside {
+	text-align: right;
+	color: #F00;
+	color: #000;
+}
+.tabletail {
+	text-align: center;
+	vertical-align: middle;
+}
+.left {
+	text-align: left;
+	vertical-align: middle;
+	height: 15px;
+	width: 160px;
+}
+.toleft {
+	text-align: left;
+	vertical-align: middle;
+}
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="SearchEMP">
+  <table width="100%" border="0" align="center" class="tablestyle">
+    <tr>
+      <td colspan="2" class="left">请输入员工:</td>
+    </tr>
+    <tr>
+      <td width="39%" class="tableside">员工号:</td>
+      <td width="61%" class="toleft"><label>
+        <input name="employeeNO" type="text" class="toleft" id="employeeNO" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="tableside">姓名:</td>
+      <td class="toleft"><label>
+        <input type="text" name="employeeName" id="employeeName" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="submit" name="search" id="search" value="查询" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

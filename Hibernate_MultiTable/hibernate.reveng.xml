@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<type-mapping>
+	<sql-type jdbc-type="NUMERIC" hibernate-type="java.lang.Integer" precision="8"
+		not-null="true">
+	</sql-type>
+</type-mapping>
+<table-filter match-schema="MULTITABLE" match-name="GOODSINFO"/>
+  <table-filter match-schema="MULTITABLE" match-name="GOODSTYPE"/>
+  <table-filter match-schema="MULTITABLE" match-name="ORDERGOODS"/>
+  <table-filter match-schema="MULTITABLE" match-name="ORDERINFO"/>
+  <table-filter match-schema="MULTITABLE" match-name="ORDERTYPE"/>
+  <table-filter match-schema="MULTITABLE" match-name="USERROLE"/>
+  <table-filter match-schema="MULTITABLE" match-name="USERINFO"/>
+</hibernate-reverse-engineering>

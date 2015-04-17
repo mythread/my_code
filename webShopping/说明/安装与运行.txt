@@ -1,0 +1,69 @@
+  start =================================================================== start
+===================================================================================
+  
+    1、配置数据库
+
+  路径：\webShopping\db_model\db_script_webShopping.sql
+	
+	首先新建数据库 webshopping 
+	然后执行路径下的脚本
+	最后向数据库插入测试数据:
+		\webShopping\db_model\test.sql
+
+===================================================================================  
+
+  2、配置spring数据源
+
+  路径：\webShopping\WebRoot\WEB-INF\applicationContext.xml
+
+	部分内容：
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/webshopping">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="fatso"></property>
+	</bean>
+
+  根据情况修改路径下此部分内容：请修改 password 
+	
+===================================================================================
+
+  3、配置虚拟目录
+
+  路径：\Apache Software Foundation\Tomcat 6.0\conf\server.xml
+
+	<Context path="/shopping" docBase="E:\myspace\webShopping\WebRoot"/>
+
+  根据情况修改docBase后将词句加在</Host>的上面。
+
+  或者：
+  
+  将\webShopping\下的WebRoot目录重命名为shopping复制到
+	 \Apache Software Foundation\Tomcat 6.0\webapps\目录下
+
+===================================================================================
+
+  4、配置日志
+
+  路径：\webShopping\WebRoot\WEB-INF\classes\log4j.properties
+
+	log4j.appender.logfile.File=E:/myspace/webShopping/log/shopping.log
+
+  在路径下找到此句，根据情况修改输出的日志文件的位置。
+
+===================================================================================
+
+  5、运行
+
+	启动Tomcat，打开浏览器，在地址栏输入：
+
+	http://localhost:8080/shopping/
+
+===================================================================================
+  end ======================================================================= end
+

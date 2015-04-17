@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><userinfo>
+	<user>
+		<name>fdsfjoejofa</name>
+		<password>pass_ls</password>
+		<address>
+			<province>LN</province>
+			<city>DL</city>
+			<street>Software Pard Road</street>
+		</address>
+	</user>
+	<user>
+		<name>Zhang San</name>
+		<password>pass_zs</password>
+		<address>
+			<province>SH</province>
+			<city>SH</city>
+			<street>Jia Feng Lu</street>
+		</address>
+	</user>
+</userinfo>

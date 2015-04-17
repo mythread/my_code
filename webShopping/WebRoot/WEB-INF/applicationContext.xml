@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/webshopping">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="fatso"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>org/webshopping/bean/Users.hbm.xml</value>
+
+				<value>org/webshopping/bean/Salesorder.hbm.xml</value>
+				<value>org/webshopping/bean/Orderitem.hbm.xml</value>
+				<value>org/webshopping/bean/Category.hbm.xml</value>
+				<value>org/webshopping/bean/Product.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- ***** DAO ***** -->
+
+	<!-- 用户 Dao -->
+	<bean id="userDaoHibernate"
+		class="org.webshopping.dao.hibernate.UserDaoHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 商品 Dao -->
+	<bean id="productDaoHibernate"
+		class="org.webshopping.dao.hibernate.ProductDaoHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 商品分类 Dao -->
+	<bean id="categoryDaoHibernate"
+		class="org.webshopping.dao.hibernate.CategoryDaoHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 订单 Dao -->
+	<bean id="salesorderHibernate"
+		class="org.webshopping.dao.hibernate.SalesorderHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 订单项 Dao -->
+	<bean id="orderItemDaoHibernate"
+		class="org.webshopping.dao.hibernate.OrderItemDaoHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<!-- ***** Service ***** -->
+
+	<!-- 用户 Service -->
+	<bean id="productServiceImpl"
+		class="org.webshopping.service.impl.ProductServiceImpl">
+		<property name="iproductDao">
+			<ref bean="productDaoHibernate" />
+		</property>
+	</bean>
+
+	<!-- 商品 Service -->
+	<bean id="userServiceImpl"
+		class="org.webshopping.service.impl.UserServiceImpl">
+		<property name="iuserDao">
+			<ref bean="userDaoHibernate" />
+		</property>
+	</bean>
+
+	<!-- 商品分类 Service -->
+	<bean id="categoryServiceImpl"
+		class="org.webshopping.service.impl.CategoryServiceImpl">
+		<property name="icategoryDao">
+			<ref bean="categoryDaoHibernate" />
+		</property>
+	</bean>
+
+	<!-- 订单 Service -->
+	<bean id="salesrderServiceImpl"
+		class="org.webshopping.service.impl.SalesrderServiceImpl">
+		<property name="isalesorderDao">
+			<ref bean="salesorderHibernate" />
+		</property>
+		<property name="iuserDao">
+			<ref bean="userDaoHibernate" />
+		</property>
+	</bean>
+
+	<!-- 订单项 Service -->
+	<bean id="orderItemServiceImpl"
+		class="org.webshopping.service.impl.OrderItemServiceImpl">
+		<property name="iorderItemDao">
+			<ref bean="orderItemDaoHibernate"/>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,13 @@
+<!-- 表单中enctype="multipart/form-data"的意思，
+是设置表单的MIME编码。
+默认情况，这个编码格式是application/x-www-form-urlencoded，不能用于文件上传；
+只有使用了multipart/form-data，才能完整的传递文件数据，进行下面的操作.
+enctype=\"multipart/form-data\"是上传二进制数据; 
+form里面的input的值以2进制的方式传过去。
+form里面的input的值以2进制的方式传过去，所以request就得不到值了。 
+也就是说加了这段代码,用request就会传递不成功 -->
+<form action="sample01.jsp" method="post" ENCTYPE="multipart/form-data">
+选择要上传的图片：
+<input type="file" name="pic">
+<input type="submit" value="上传">
+</form>

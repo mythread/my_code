@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="login" extends="struts-default">
+
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<!-- 配置一个拦截器栈 -->
+			<interceptor-stack name="myInterceptors">
+				<!-- 使用struts自带timer拦截器 -->
+				<interceptor-ref name="timer" />
+				<!-- 使用struts的默认拦截器栈 -->
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置LoginAction -->
+		<action name="login"
+			class="com.ibm.etp.login.action.LoginAction">
+			<!-- 配置跳转的url路径，如果是成功"success"，可以使用默认不写 -->
+			<result>success.jsp</result>
+			<result name="failure">failure.jsp</result>
+
+			<!-- 应用一个拦截器 -->
+			<interceptor-ref name="myInterceptors" />
+		</action>
+		
+		<!-- 配置FormAction -->
+		<action name="form"
+			class="com.ibm.etp.login.action.FormAction">
+			<!-- 配置跳转的url路径，如果是成功"success"，可以使用默认不写 -->
+			<result>success.jsp</result>
+			<result name="failure">failure.jsp</result>
+			<!-- 如果重复提交，跳转到invalid.token对应页面 -->
+			<result name="invalid.token">invalidToken.jsp</result>
+			
+			<!-- 应用一个拦截器 -->
+			<interceptor-ref name="defaultStack" />
+			<!-- 应用一个防止重复提交拦截器 -->
+			<interceptor-ref name="token" />
+		</action>
+
+	</package>
+</struts>

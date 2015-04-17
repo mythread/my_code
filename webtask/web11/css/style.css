@@ -1,0 +1,29 @@
+.tabletail {
+	background-color: #CCCCCC;
+}
+.tableside {
+	background-color: #ffffcc;
+	text-align: left;
+}
+table {
+	vertical-align: middle;
+	border-right-style: none;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 1px;
+	padding: 0px;
+	text-align: center;
+	border-collapse:collapse;
+}
+.tablehead{
+	background-color: #9999ff;
+	color: #FFF;
+}
+#td {
+	font-size: 12px;
+}

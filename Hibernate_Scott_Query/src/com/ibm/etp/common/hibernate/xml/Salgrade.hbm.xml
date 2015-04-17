@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-29 9:29:24 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.common.hibernate.pojo.Salgrade" table="SALGRADE" schema="SCOTT">
+        <composite-id name="id" class="com.ibm.etp.common.hibernate.pojo.SalgradeId">
+            <key-property name="grade" type="java.lang.Double">
+                <column name="GRADE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="losal" type="java.lang.Double">
+                <column name="LOSAL" precision="22" scale="0" />
+            </key-property>
+            <key-property name="hisal" type="java.lang.Double">
+                <column name="HISAL" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

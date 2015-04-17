@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "web-jsptaglibrary_1_2.dtd" >
+<taglib>
+	<tlib-version>ibmetptag 1.0</tlib-version>
+	<jsp-version>jsp 2.0</jsp-version>
+	<short-name>etptag</short-name>
+	<uri>http://ibmetp.wx/java02/1</uri>
+	<tag>
+		<name>echo</name>
+		<tag-class>diytag.Echo</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>msg</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>	
+	</tag>
+	<tag>
+		<name>formatdate</name>
+		<tag-class>diytag.FormatDate</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>date</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>pattern</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+</taglib>

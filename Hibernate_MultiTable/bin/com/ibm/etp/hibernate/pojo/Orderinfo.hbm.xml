@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-29 10:59:14 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojo.Orderinfo" table="ORDERINFO" schema="MULTITABLE">
+        <id name="orderno" type="java.lang.Integer">
+            <column name="ORDERNO" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ordertype" class="com.ibm.etp.hibernate.pojo.Ordertype" fetch="select">
+            <column name="ORDERTYPE" precision="8" scale="0" />
+        </many-to-one>
+        <many-to-one name="userinfo" class="com.ibm.etp.hibernate.pojo.Userinfo" fetch="select">
+            <column name="USERNO" precision="8" scale="0" />
+        </many-to-one>
+        <property name="orderdate" type="date">
+            <column name="ORDERDATE" length="7" />
+        </property>
+        <set name="ordergoodses" table="ORDERGOODS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORDERNO" precision="8" scale="0" />
+            </key>
+            <one-to-many class="com.ibm.etp.hibernate.pojo.Ordergoods" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-29 9:29:24 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.common.hibernate.pojo.Bonus" table="BONUS" schema="SCOTT">
+        <composite-id name="id" class="com.ibm.etp.common.hibernate.pojo.BonusId">
+            <key-property name="ename" type="string">
+                <column name="ENAME" length="10" />
+            </key-property>
+            <key-property name="job" type="string">
+                <column name="JOB" length="9" />
+            </key-property>
+            <key-property name="sal" type="java.lang.Double">
+                <column name="SAL" precision="22" scale="0" />
+            </key-property>
+            <key-property name="comm" type="java.lang.Double">
+                <column name="COMM" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-29 10:59:14 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojo.Goodstype" table="GOODSTYPE" schema="MULTITABLE">
+        <id name="goodstypeno" type="java.lang.Integer">
+            <column name="GOODSTYPENO" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="goodstypename" type="string">
+            <column name="GOODSTYPENAME" length="20" />
+        </property>
+        <set name="goodsinfos" table="GOODSINFO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GOODSTYPE" precision="8" scale="0" />
+            </key>
+            <one-to-many class="com.ibm.etp.hibernate.pojo.Goodsinfo" />
+        </set>
+    </class>
+</hibernate-mapping>

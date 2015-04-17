@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-30 15:23:25 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojo.Ordergoods" table="ORDERGOODS" schema="MULTITABLE">
+        <id name="ordergoodsno" type="java.lang.Integer">
+            <column name="ORDERGOODSNO" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="orderinfo" class="com.ibm.etp.hibernate.pojo.Orderinfo" fetch="select">
+            <column name="ORDERNO" precision="8" scale="0" />
+        </many-to-one>
+        <many-to-one name="goodsinfo" class="com.ibm.etp.hibernate.pojo.Goodsinfo" fetch="select">
+            <column name="GOODSNO" precision="8" scale="0" />
+        </many-to-one>
+        <property name="price" type="java.lang.Integer">
+            <column name="PRICE" precision="8" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="AMOUNT" precision="8" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

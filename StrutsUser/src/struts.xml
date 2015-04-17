@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.extension" value="html"></constant>
+
+	<package name="StrutsUser" extends="struts-default">
+		<action name="index">
+			<result>/WEB-INF/index.jsp</result>
+		</action>
+
+		<action name="search">
+			<result>/WEB-INF/pages/search.jsp</result>
+		</action>
+
+		<action name="register">
+			<result>/WEB-INF/pages/register.jsp</result>
+		</action>
+		
+		<action name="system_error">
+			<result>/WEB-INF/pages/common/system_error.jsp</result>
+		</action>
+
+		<action name="indexuser" class="com.etp.stu.action.IndexAction"
+			method="Login">
+			<result type="chain">search</result>
+			<result name="useriderror">/WEB-INF/pages/common/usererror.jsp</result>
+			<result name="passworderror">/WEB-INF/pages/common/loginerror.jsp</result>
+			<result name="invalid.token">/WEB-INF/pages/common/logintokenerror.jsp</result>
+
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token"></interceptor-ref>
+		</action>
+
+
+		<action name="search" class="com.etp.stu.action.SearchAction"
+			method="search">
+			<result type="chain">search</result>
+		</action>
+
+		<action name="logout" class="com.etp.stu.action.LogoutAction">
+			<result type="chain">index</result>
+		</action>
+
+		<action name="updateini" class="com.etp.stu.action.UpdateAction"
+			method="init">
+			<result>/WEB-INF/pages/update.jsp</result>
+		</action>
+
+		<action name="update" class="com.etp.stu.action.UpdateAction">
+			<result type="redirectAction">search</result>
+		</action>
+
+		<action name="regiter" class="com.etp.stu.action.RegiterAction">
+			<result type="redirectAction">search</result>
+			<result	name="input">/WEB-INF/pages/register.jsp</result>
+		</action>
+
+
+		<!-- 
+		<action name="" class=""
+			method="">
+			<result type=""></result>
+		</action>
+ 		-->
+
+	</package>
+</struts>

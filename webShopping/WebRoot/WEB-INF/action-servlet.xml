@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="userBaseAction"
+		class="org.webshopping.struts.action.UserBaseAction">
+		<property name="iuserService">
+			<ref bean="userServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 注册 -->
+	<bean name="/register"
+		class="org.webshopping.struts.action.RegisterAction"
+		parent="userBaseAction">
+
+	</bean>
+
+	<!-- 登录 -->
+	<bean name="/login"
+		class="org.webshopping.struts.action.LoginAction"
+		parent="userBaseAction">
+
+	</bean>
+
+	<!-- 用户管理 -->
+	<bean name="/userinfo/info"
+		class="org.webshopping.struts.action.UserinfoAction">
+		<property name="iuserService">
+			<ref bean="userServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 密码管理 -->
+	<bean name="/userinfo/pass"
+		class="org.webshopping.struts.action.PassAction">
+		<property name="iuserService">
+			<ref bean="userServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 商品分类 -->
+	<bean name="/show/category"
+		class="org.webshopping.struts.action.CategoryAction">
+		<property name="icategoryService">
+			<ref bean="categoryServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 商品 -->
+	<bean name="/show/product"
+		class="org.webshopping.struts.action.ProductAction">
+		<property name="iproductService">
+			<ref bean="productServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 购物车 -->
+	<bean name="/show/buy/trolley"
+		class="org.webshopping.struts.action.BuyAction">
+
+	</bean>
+
+	<!-- 退出登录 -->
+	<bean name="/logout"
+		class="org.webshopping.struts.action.LogoutAction">
+
+	</bean>
+
+	<!-- 订单 -->
+	<bean name="/show/buy/saleSorder"
+		class="org.webshopping.struts.action.SaleSorderAction">
+		<property name="isalesrderService">
+			<ref bean="salesrderServiceImpl" />
+		</property>
+	</bean>
+
+	<!-- 订单项 -->
+	<bean name="/userinfo/orderItem"
+		class="org.webshopping.struts.action.OrderItemAction">
+		<property name="iorderItemService">
+			<ref bean="orderItemServiceImpl" />
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,450 @@
+BODY {
+	COLOR: #484848
+}
+A {
+	COLOR: #8f1416
+}
+A:link {
+	COLOR: #8f1416
+}
+A:visited {
+	COLOR: #8f1416
+}
+A:hover {
+	COLOR: #8f1416
+}
+.SG_more {
+	COLOR: #8f1416
+}
+.SG_txta {
+	COLOR: #8f1416
+}
+.SG_txtb {
+	COLOR: #909090
+}
+.SG_txtc {
+	COLOR: #909090
+}
+.SG_clewtxta {
+	COLOR: #ff0000
+}
+.SG_clewtxtb {
+	COLOR: #ff6600
+}
+.SG_linka A:link {
+	COLOR: #484848
+}
+.SG_linka A:visited {
+	COLOR: #484848
+}
+.SG_linka A:hover {
+	COLOR: #484848
+}
+A.SG_linka:link {
+	COLOR: #484848
+}
+A.SG_linka:visited {
+	COLOR: #484848
+}
+A.SG_linka:hover {
+	COLOR: #484848
+}
+.SG_linkb A:link {
+	COLOR: #909090
+}
+.SG_linkb A:visited {
+	COLOR: #909090
+}
+.SG_linkb A:hover {
+	COLOR: #909090
+}
+A.SG_linkb:link {
+	COLOR: #909090
+}
+A.SG_linkb:visited {
+	COLOR: #909090
+}
+A.SG_linkb:hover {
+	COLOR: #909090
+}
+.borderc {
+	BORDER-LEFT-COLOR: #bba7ba; BORDER-BOTTOM-COLOR: #bba7ba; BORDER-TOP-COLOR: #bba7ba; BORDER-RIGHT-COLOR: #bba7ba
+}
+.sinabloghead .blogtitle {
+	COLOR: #8b090b
+}
+.sinabloghead .blogtitle A {
+	COLOR: #8b090b
+}
+.sinabloghead .blogtitle A:link {
+	COLOR: #8b090b
+}
+.sinabloghead .blogtitle A:visited {
+	COLOR: #8b090b
+}
+.sinabloghead .blogtitle A:hover {
+	COLOR: #8b090b
+}
+.sinabloghead .blogtitle .CP_a_fuc {
+	COLOR: #8b090b
+}
+.sinabloghead .bloglink {
+	COLOR: #8f1416
+}
+.sinabloghead .bloglink A {
+	COLOR: #8f1416
+}
+.sinabloghead .bloglink A:link {
+	COLOR: #8f1416
+}
+.sinabloghead .bloglink A:visited {
+	COLOR: #8f1416
+}
+.sinabloghead .bloglink A:hover {
+	COLOR: #8f1416
+}
+.sinabloghead .bloglink .CP_a_fuc {
+	COLOR: #931d1e
+}
+.sinabloghead .blognav A {
+	COLOR: #5d7670
+}
+.sinabloghead .blognav A:link {
+	COLOR: #5d7670
+}
+.sinabloghead .blognav A:visited {
+	COLOR: #5d7670
+}
+.sinabloghead .blognav A:hover {
+	COLOR: #5d7670
+}
+.sinabloghead .blognav A.on {
+	COLOR: #8b090b
+}
+.sinabloghead .blognav A.on:link {
+	COLOR: #8b090b
+}
+.sinabloghead .blognav A.on:visited {
+	COLOR: #8b090b
+}
+.sinabloghead .blognav A.on:hover {
+	COLOR: #8b090b
+}
+.SG_connHead .title {
+	COLOR: #5d7670
+}
+.SG_connHead .title A {
+	COLOR: #5d7670
+}
+.SG_connHead .title A:link {
+	COLOR: #5d7670
+}
+.SG_connHead .title A:visited {
+	COLOR: #5d7670
+}
+.SG_connHead .title A:hover {
+	COLOR: #5d7670
+}
+.SG_connHead .tip {
+	COLOR: #5d7670
+}
+.SG_connHead .tip A {
+	COLOR: #5d7670
+}
+.SG_connHead .tip A:link {
+	COLOR: #5d7670
+}
+.SG_connHead .tip A:visited {
+	COLOR: #5d7670
+}
+.SG_connHead .tip A:hover {
+	COLOR: #5d7670
+}
+.SG_connHead .edit {
+	COLOR: #5d7670
+}
+.SG_connHead .edit A {
+	COLOR: #5d7670
+}
+.SG_connHead .edit A:link {
+	COLOR: #5d7670
+}
+.SG_connHead .edit A:visited {
+	COLOR: #5d7670
+}
+.SG_connHead .edit A:hover {
+	COLOR: #5d7670
+}
+.SG_connHead .tip_r {
+	COLOR: #5d7670
+}
+.SG_connHead .tip_r A {
+	COLOR: #5d7670
+}
+.SG_connHead .tip_r A:link {
+	COLOR: #5d7670
+}
+.SG_connHead .tip_r A:visited {
+	COLOR: #5d7670
+}
+.SG_connHead .tip_r A:hover {
+	COLOR: #5d7670
+}
+.SG_connHead .fontSize {
+	COLOR: #5d7670
+}
+.SG_connHead .fontSize A {
+	COLOR: #5d7670
+}
+.SG_connHead .fontSize A:link {
+	COLOR: #5d7670
+}
+.SG_connHead .fontSize A:visited {
+	COLOR: #5d7670
+}
+.SG_connHead .fontSize A:hover {
+	COLOR: #5d7670
+}
+.menuList UL LI.current {
+	COLOR: #5d7670
+}
+.menuList UL LI.current A {
+	COLOR: #5d7670
+}
+.menuList UL LI.current A:link {
+	COLOR: #5d7670
+}
+.menuList UL LI.current A:visited {
+	COLOR: #5d7670
+}
+.menuList UL LI.current A:hover {
+	COLOR: #5d7670
+}
+.menuList UL LI.current EM.SG_txtc {
+	COLOR: #5d7670
+}
+.sinablogfooter {
+	COLOR: #82847f
+}
+.sinablogfooter A:link {
+	COLOR: #82847f
+}
+.sinablogfooter A:visited {
+	COLOR: #82847f
+}
+.sinablogfooter A:hover {
+	COLOR: #82847f
+}
+A.SG_aBtn {
+	COLOR: #484848
+}
+A.SG_aBtn:link {
+	COLOR: #484848
+}
+A.SG_aBtn:visited {
+	COLOR: #484848
+}
+.SG_tag UL LI SPAN A {
+	COLOR: #6e6e95
+}
+.SG_tag UL LI SPAN A:link {
+	COLOR: #6e6e95
+}
+.SG_tag UL LI SPAN A:visited {
+	COLOR: #6e6e95
+}
+.SG_tag UL LI SPAN A:hover {
+	COLOR: #6e6e95
+}
+BODY {
+	BACKGROUND-COLOR: #e0e3da
+}
+.sinablogb {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sinablogb.jpg)
+}
+.sinabloghead {
+	HEIGHT: 207px
+}
+.sinabloga {
+	BACKGROUND-IMAGE: none
+}
+.sinablogfooter {
+	HEIGHT: 190px
+}
+.sinabloghead .blogtoparea {
+	LEFT: 219px; TOP: 28%
+}
+.sinabloghead .blognav {
+	LEFT: 200px; WIDTH: 270px; TOP: 57%; HEIGHT: 48px
+}
+.sinabloghead .blognav .blognavInfo {
+	LEFT: 8px; TOP: 19px
+}
+.sinabloghead .blognav .blognavBg {
+	BACKGROUND-IMAGE: none
+}
+.sinabloghead .blognav SPAN {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png); PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.SG_colW95 .SG_connHead {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.SG_colW73 .SG_connHead {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.SG_colW51 .SG_connHead {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.SG_colW21 .SG_connHead {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.blogads .ad_head {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.SG_colW95 .SG_connHead {
+	HEIGHT: 26px
+}
+.SG_colW73 .SG_connHead {
+	HEIGHT: 26px
+}
+.SG_colW51 .SG_connHead {
+	HEIGHT: 26px
+}
+.SG_colW21 .SG_connHead {
+	HEIGHT: 26px
+}
+.SG_colW95 .SG_connBody {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW73 .SG_connBody {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW51 .SG_connBody {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW21 .SG_connBody {
+	BACKGROUND-IMAGE: none
+}
+.blogads .ad_body {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW95 .SG_connFoot {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW73 .SG_connFoot {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW51 .SG_connFoot {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW21 .SG_connFoot {
+	BACKGROUND-IMAGE: none
+}
+.blogads .ad_foot {
+	BACKGROUND-IMAGE: none
+}
+.SG_colW95 .SG_connFoot {
+	HEIGHT: 1px
+}
+.SG_colW73 .SG_connFoot {
+	HEIGHT: 1px
+}
+.SG_colW51 .SG_connFoot {
+	HEIGHT: 1px
+}
+.SG_colW21 .SG_connFoot {
+	HEIGHT: 1px
+}
+.blogads .ad_head {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/modelhead.gif)
+}
+.blogads .ad_body {
+	BACKGROUND-IMAGE: none
+}
+.blogads .ad_foot {
+	BACKGROUND-IMAGE: none
+}
+.SG_j_line {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/SG_line.gif)
+}
+.SG_j_line1 {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/SG_line.gif)
+}
+.SG_j_linedot {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/SG_linedot.gif)
+}
+.SG_j_linedot1 {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/SG_linedot.gif)
+}
+.SG_dot {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/SG_dot.gif)
+}
+.SG_tag {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.SG_tag UL LI {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.SG_tag UL LI SPAN.tagR {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.SG_tag UL LI.current {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.SG_tag UL LI.current SPAN.tagR {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.menuList UL LI.current {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.menuList UL LI.current .menuCell_bot {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+.allComm .allCommTit {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+A.SG_aBtn {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+A.SG_aBtn CITE {
+	BACKGROUND-IMAGE: url(../../../image/4/4_23/images/sg_newsp.png)
+}
+A.SG_aBtnB {
+	BACKGROUND-IMAGE: url(http://simg.sinajs.cn/blog7style/images/common/sg_btnb.gif); COLOR: #333399
+}
+A.SG_aBtnB CITE {
+	BACKGROUND-IMAGE: url(http://simg.sinajs.cn/blog7style/images/common/sg_btnb.gif); COLOR: #333399
+}
+A.SG_aBtn_dis {
+	BACKGROUND-IMAGE: url(http://simg.sinajs.cn/blog7style/images/common/sg_btn_dis.gif)
+}
+A.SG_aBtn_dis CITE {
+	BACKGROUND-IMAGE: url(http://simg.sinajs.cn/blog7style/images/common/sg_btn_dis.gif)
+}
+.sinabloghead .adsarea {
+	DISPLAY: none; RIGHT: 0px; BOTTOM: 50px
+}
+.sinabloghead .adsarea .pic {
+	DISPLAY: none
+}
+.sinabloghead .adsarea .link {
+	COLOR: #ffffff
+}
+.sinabloghead .adsarea .link A {
+	COLOR: #0099ff
+}
+.sinabloghead .adsarea .link A:link {
+	COLOR: #0099ff
+}
+.sinabloghead .adsarea .link A:visited {
+	COLOR: #0099ff
+}
+.sinabloghead .adsarea .link A:hover {
+	COLOR: #0099ff
+}
+.sinabloghead .adsarea .other {
+	DISPLAY: none
+}
+.sinabloghead .headflash {
+	WIDTH: 950px; HEIGHT: 265px
+}

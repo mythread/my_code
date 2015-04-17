@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>计算圆的周长和面积 </title>
+<style type="text/css">
+<!--
+.tableside {
+	text-align: right;
+	vertical-align: middle;
+}
+.formsize {
+	height: 50px;
+	width: 350px;
+}
+.fonttype {
+	color: #F00;
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+ function calculate()
+{
+ with(document.form1)
+{
+//非数字处理
+if(isNaN(radii.value)||radii.value=="")
+{
+alert("请输入数字！");
+//清空文本框
+radii.value="";
+girth.value="";
+area.value="";
+//设置焦点
+radii.focus();
+}//end if
+else{
+//---正常处理---
+//将字符串转换为浮点数
+var pai=3.14;
+var r=parseInt(radii.value);
+girth.value=r*2*pai;
+area.value=r*r*pai;
+}//end else
+}//end with
+}
+-->
+</script>
+</head>
+
+<body>
+<form name="form1" class="formsize" id="form1">
+  <fieldset>
+    <legend class="fonttype">计算圆的周长和面积 </legend><br>
+    <table width="100%" border="0" align="center">
+  <tr>
+    <td width="50%" class="tableside">请输入圆的半径:</td>
+    <td width="50%"><label>
+      <input type="text" name="radii" id="radii" />
+    </label></td>
+  </tr>
+  <tr>
+    <td class="tableside">周长:</td>
+    <td><label>
+      <input type="text" name="girth" id="girth" readonly/>
+    </label></td>
+  </tr>
+  <tr>
+    <td class="tableside">面积:</td>
+    <td><label>
+      <input type="text" name="area" id="area" readonly/>
+    </label></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="tableside"><label>
+      <input type="button" name="calc" id="calc" value="计算" onClick="calculate()"/>
+    </label></td>
+    </tr>
+</table>
+
+  </fieldset>
+</form>
+</body>
+</html>

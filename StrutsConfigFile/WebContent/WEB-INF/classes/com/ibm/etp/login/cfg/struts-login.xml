@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="login" extends="struts-default">
+    
+        <!-- 配置LoginAction，name属性要和jsp页面中action标签name的值保持一致 -->
+        <action name="login" class="com.ibm.etp.login.action.LoginAction" method="myLoginMethod">
+            <!-- 配置跳转的url路径，如果是成功"success"，可以使用默认不写 -->
+            <result>success.jsp</result>
+            <result name="failure">failure.jsp</result>
+        </action>
+        
+        <!-- 如下配置若干action
+        <action name="" class="" method="">
+            <param name=""></param>
+            <param name=""></param>
+            <result name="" type=""></result>
+            <result name="" type=""></result>
+        </action>
+         -->
+    </package>
+</struts>

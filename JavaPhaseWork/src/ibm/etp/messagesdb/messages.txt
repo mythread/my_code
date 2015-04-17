@@ -1,0 +1,2 @@
+FROM:adminTO:user1MESSAGE:hello!
+FROM:user1TO:adminMESSAGE:hi!
