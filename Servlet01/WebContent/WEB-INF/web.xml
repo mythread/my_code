@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Servlet01</display-name>
+<servlet>
+    <description>first servlet</description>
+    <display-name>HelloWorld</display-name>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>etp.firstservlet.HelloWorld</servlet-class>
+  </servlet>
+  <servlet>
+    <description>test get/post method</description>
+    <display-name>test method</display-name>
+    <servlet-name>TestMethod</servlet-name>
+    <servlet-class>etp.testmethod.TestMethod</servlet-class>
+  </servlet>
+  <servlet>
+    <description>lifecycle</description>
+    <display-name>lifecycle</display-name>
+    <servlet-name>LifeCycle</servlet-name>
+    <servlet-class>etp.lifecycle.LifeCycle</servlet-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>etp</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>login</description>
+    <display-name>login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>etp.login.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>etp.servlet.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/firstservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/servlet/HelloWorld</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestMethod</servlet-name>
+    <url-pattern>/TestMethod</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LifeCycle</servlet-name>
+    <url-pattern>/servlet/LifeCycle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/servlet/Login</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

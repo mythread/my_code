@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-2 22:34:12 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojo.TUser" table="T_USER" schema="USERMNGR">
+        <id name="userId" type="string">
+            <column name="USER_ID" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TStatus" class="com.ibm.etp.hibernate.pojo.TStatus" fetch="select">
+            <column name="STATUS_ID" length="1" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="USER_NAME" length="20" not-null="true" />
+        </property>
+        <property name="userPwd" type="string">
+            <column name="USER_PWD" length="32" not-null="true" />
+        </property>
+        <property name="userMailaddress" type="string">
+            <column name="USER_MAILADDRESS" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

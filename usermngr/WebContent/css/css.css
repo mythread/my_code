@@ -1,0 +1,70 @@
+@charset "utf-8";
+body {
+	font-family: Verdana, "微软雅黑", "宋体";
+	font-size: 14px;
+}
+
+.style4 {
+	width: 800px;
+	margin-bottom:10px;
+	border:1px solid #CCEFF5;
+	background-color: #FAFCFD;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 15px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+}
+
+#page_title {
+	height: 50px;
+	width: 800px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-size: 14px;
+	text-align: center;
+	color: #0CC;
+}
+
+#error_msg {
+	color: #F00;
+	font-size: 14px;
+	text-align: left;
+	
+}
+.form_middle {
+	
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+}
+.input {
+	width: 120px;
+	font-family: Verdana, "微软雅黑", "宋体";
+}
+.form_col_right {
+	text-align: right;
+}
+#search_result {
+	margin-bottom: 15px;
+
+}
+.odd {
+	background-color: #CCEFF5;
+}
+.even {
+	background-color: #FAFCFD;
+}
+.right {
+	float: right;
+}
+.left {
+	font-size: 14px;
+	color: #0CC;
+	float: left;
+}

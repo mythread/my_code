@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="userDao" class="com.ibm.etp.dao.UserDaoImpl" scope="singleton"></bean>
+	
+	<bean id="loginVO" class="com.ibm.etp.vo.LoginVO"></bean>
+	
+	<bean id="loginAction" class="com.ibm.etp.action.LoginAction" scope="request">
+		<property name="loginVO" ref="loginVO"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="logoutAction" class="com.ibm.etp.action.LogoutAction" scope="request">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="userEditAction" class="com.ibm.etp.action.UserEditAction" scope="request">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="userRegAction" class="com.ibm.etp.action.UserRegAction" scope="request">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="userSearchAction" class="com.ibm.etp.action.UserSearchAction" scope="request">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	
+</beans>

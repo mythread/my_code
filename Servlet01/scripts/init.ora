@@ -1,0 +1,56 @@
+##############################################################################
+# Copyright (c) 1991, 2001, 2002 by Oracle Corporation
+##############################################################################
+ 
+###########################################
+# Shared Server
+###########################################
+dispatchers="(PROTOCOL=TCP) (SERVICE=dbXDB)"
+ 
+###########################################
+# Miscellaneous
+###########################################
+compatible=11.1.0.0.0
+diagnostic_dest=E:\oracle11g
+memory_target=854589440
+ 
+###########################################
+# Security and Auditing
+###########################################
+audit_file_dest=E:\oracle11g\admin\db\adump
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+ 
+###########################################
+# Database Identification
+###########################################
+db_domain=""
+db_name=db
+ 
+###########################################
+# File Configuration
+###########################################
+control_files=("E:\oracle11g\oradata\db\control01.ctl", "E:\oracle11g\oradata\db\control02.ctl", "E:\oracle11g\oradata\db\control03.ctl")
+db_recovery_file_dest=E:\oracle11g\flash_recovery_area
+db_recovery_file_dest_size=2147483648
+ 
+###########################################
+# Cursors and Library Cache
+###########################################
+open_cursors=300
+ 
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_tablespace=UNDOTBS1
+ 
+###########################################
+# Processes and Sessions
+###########################################
+processes=150
+ 
+###########################################
+# Cache and I/O
+###########################################
+db_block_size=8192
+ 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- struts 是Struts 2配置文件的根元素 -->
+<struts>
+    <!-- 允许动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- devMode设置为struts开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置action的后缀 -->
+	<constant name="struts.action.extension" value="html"></constant>
+    <!-- Struts 2的Action 必须放在指定的包空间下定义 -->
+	<package name="usermngr" extends="struts-default">
+		<action name="login">
+			<result>/WEB-INF/page/login.jsp</result>
+		</action>
+
+		<action name="user_search">
+			<result>/WEB-INF/page/usermngr/user_search.jsp</result>
+		</action>
+
+		<action name="user_reg">
+			<result>/WEB-INF/page/usermngr/user_reg.jsp</result>
+		</action>
+		
+		<action name="error">
+			<result>/WEB-INF/page/common/notlogin.jsp</result>
+		</action>
+        <!-- 定义loginuser的Action,该Action的实现类为LoginAction类 -->
+		<action name="loginuser" class="com.ibm.etp.action.LoginAction"
+			method="login">
+			<result type="chain">user_search</result>
+			<!-- 定义处理结果和资源之间的映射关系 -->
+			<result name="useriderror">/WEB-INF/page/common/usererror.jsp</result>
+			<result name="passworderror">/WEB-INF/page/common/loginerror.jsp</result>
+			<result name="invalid.token">/WEB-INF/page/common/logintokenerror.jsp</result>
+
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token"></interceptor-ref>
+		</action>
+
+        <!-- 定义search的Action,该Action的实现类为UserSearchAction类 -->
+		<action name="search" class="com.ibm.etp.action.UserSearchAction"
+			method="search">
+			<result type="chain">user_search</result>
+		</action>
+        <!-- 定义logout的Action,该Action的实现类为LogoutAction类 -->
+		<action name="logout" class="com.ibm.etp.action.LogoutAction">
+			<result type="chain">login</result>
+		</action>
+        <!-- 定义user_edit的Action,该Action的实现类为UserEditAction类 -->
+		<action name="user_edit" class="com.ibm.etp.action.UserEditAction"
+			method="init">
+			<result>/WEB-INF/page/usermngr/user_edit.jsp</result>
+		</action>
+        <!-- 定义useredit的Action,该Action的实现类为UserEditAction类 -->
+		<action name="useredit" class="com.ibm.etp.action.UserEditAction">
+			<result type="redirectAction">user_search</result>
+		</action>
+        <!-- 定义userreg的Action,该Action的实现类为UserRegAction类 -->
+		<action name="userreg" class="com.ibm.etp.action.UserRegAction">
+			<result type="redirectAction">user_search</result>
+			<result	name="input">/WEB-INF/page/usermngr/user_reg.jsp</result>
+		</action>
+
+
+		<!-- 
+		<action name="" class=""
+			method="">
+			<result type=""></result>
+		</action>
+ 		-->
+
+	</package>
+</struts>

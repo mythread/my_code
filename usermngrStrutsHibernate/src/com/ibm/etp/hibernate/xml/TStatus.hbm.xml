@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-2 22:34:12 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ibm.etp.hibernate.pojo.TStatus" table="T_STATUS" schema="USERMNGR">
+        <id name="statusId" type="java.lang.String">
+            <column name="STATUS_ID" length="1" />
+            <generator class="assigned" />
+        </id>
+        <property name="statusName" type="string">
+            <column name="STATUS_NAME" length="20" not-null="true" />
+        </property>
+        <set name="TUsers" table="T_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="STATUS_ID" length="1" />
+            </key>
+            <one-to-many class="com.ibm.etp.hibernate.pojo.TUser" />
+        </set>
+    </class>
+</hibernate-mapping>

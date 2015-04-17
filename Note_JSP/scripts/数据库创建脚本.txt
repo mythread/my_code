@@ -1,0 +1,37 @@
+-- 创建表
+-- 用户表（登陆）、留言表
+
+-- 删除表
+DROP TABLE person ;
+DROP TABLE note ;
+
+-- 删除序列
+DROP SEQUENCE note_sequ ;
+
+-- 创建序列
+CREATE SEQUENCE note_sequ ;
+
+
+-- 创建person表
+CREATE TABLE person
+(
+	id varchar(20) not null primary key ,
+	name varchar(20) ,
+	password varchar(20)
+) ;
+
+-- 创建留言表
+CREATE TABLE note
+(
+	id int not null primary key , -- sequence
+	title varchar(20) not null ,
+	author varchar(20) not null ,
+	content varchar(50) not null 
+) ;
+
+-- 插入测试数据
+INSERT INTO person VALUES ('LXH','李兴华','zzzzzz') ;
+INSERT INTO person VALUES ('MLDN','魔乐','mmmmmm') ;
+
+-- 事务提交
+commit ;
